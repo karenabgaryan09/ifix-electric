@@ -13,15 +13,15 @@ export default function Footer() {
         <motion.footer {...pageFade} className="footer bg-dark">
             <div className="container">
                 <div className="row row-top">
-                    <Link className="logo" to="/">
-                        <img src={logo3} alt="" />
-                    </Link>
+                    <div className="logo-wrapper">
+                        <Link className="logo" to="/">
+                            <img src={logo3} alt="" />
+                        </Link>
+                    </div>
 
                     <ul className="commercial">
                         <li>
-                            <div className="commercial-link title">
-                                Commercial
-                            </div>
+                            <div className="commercial-link title">Commercial</div>
                         </li>
                         <li>
                             <a href="#/" target="_blank" className="commercial-link">
@@ -41,9 +41,7 @@ export default function Footer() {
                     </ul>
                     <ul className="commercial">
                         <li>
-                            <div  className="commercial-link title">
-                            Commercial
-                            </div>
+                            <div className="commercial-link title">Commercial</div>
                         </li>
                         <li>
                             <a href="#/" target="_blank" className="commercial-link">
@@ -63,9 +61,7 @@ export default function Footer() {
                     </ul>
                     <ul className="commercial">
                         <li>
-                            <div className="commercial-link title">
-                                About
-                            </div>
+                            <div className="commercial-link title">About</div>
                         </li>
                         <li>
                             <a href="#/" target="_blank" className="commercial-link">
