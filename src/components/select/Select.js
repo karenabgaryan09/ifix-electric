@@ -11,6 +11,8 @@ export default function Select({
     color,
     toggleIcon,
     children,
+    name = "",
+    callback = () => {},
 }) {
     const [isOpen, setIsOpen] = useState(false);
     const [activeOption, setActiveOption] = useState(-1);
@@ -44,7 +46,7 @@ export default function Select({
 
         setActiveOption(tempItems.findIndex((item) => item.isActive === true));
     };
-    
+
     const scrollIntoView = () => {
         const activeItem = activeOptionRef.current;
         activeItem?.scrollIntoView({
@@ -72,13 +74,16 @@ export default function Select({
                 break;
             case "Enter":
                 activeOptionRef.current?.click();
-                isOpen && setTimeout(()=>closeMenu(),0) 
+                isOpen && setTimeout(() => closeMenu(), 0);
                 break;
         }
     };
 
+    const inputRef = useRef(null);
+
     useEffect(() => {
         scrollIntoView();
+        if (inputRef.current) callback(inputRef.current);
     }, [activeOption]);
 
     const getPlaceholder = () => {
@@ -101,6 +106,16 @@ export default function Select({
                 {startIcon && <span className="startIcon">{startIcon}</span>}
                 <span className={`select-toggle-title`}>{title}</span>
                 {endIcon && <span className="endIcon">{endIcon}</span>}
+                {name && (
+                    <input
+                        type="text"
+                        name={name}
+                        value={title}
+                        onChange={() => {}}
+                        ref={inputRef}
+                        style={{ display: "none" }}
+                    />
+                )}
             </div>
         );
     };
@@ -114,43 +129,49 @@ export default function Select({
     //
 
     return (
-        <div className={`select ${isOpen ? "active" : ""}  ${className}`} ref={selectRef} onClick={(e)=>e.preventDefault()}> 
-            <div className="select-toggle-wrapper" ref={clickWrapper}>
-                <Button
-                    className={`select-toggle`}
-                    data-toggle="select"
-                    onClick={()=>isOpen ? closeMenu() : openMenu() }
-                    variant={variant}
-                    color={color}
-                    onKeyDown={handleKeyDown}
-                >
-                    {!items.length ? getPlaceholder() : getActiveItem()}
-                    <span className="endIcon select-toggle-icon">{toggleIcon || chevronDown}</span>
-                </Button>
-            </div>
+        <>
+            <div
+                className={`select ${isOpen ? "active" : ""}  ${className}`}
+                ref={selectRef}
+                onClick={(e) => e.preventDefault()}
+            >
+                <div className="select-toggle-wrapper" ref={clickWrapper}>
+                    <Button
+                        className={`select-toggle`}
+                        data-toggle="select"
+                        onClick={() => (isOpen ? closeMenu() : openMenu())}
+                        variant={variant}
+                        color={color}
+                        onKeyDown={handleKeyDown}
+                    >
+                        {!items.length ? getPlaceholder() : getActiveItem()}
+                        <span className="endIcon select-toggle-icon">{toggleIcon || chevronDown}</span>
+                    </Button>
+                </div>
 
-            {/* {isOpen && ( // don't render menu while it closed */}
-            <div className="select-menu">
-                {!items.length ? (
-                    <div className="select-item disabled">empty.</div>
-                ) : (
-                    items.map(({ title, startIcon, endIcon, id }, index) => (
-                        <div
-                            key={index}
-                            id={`select-item-${id}`}
-                            className={`select-item ${activeOption === index ? "active" : ""}`}
-                            onClick={() => setActive(id)}
-                            ref={activeOption === index ? activeOptionRef : null}
-                        >
-                            {startIcon && <span className="startIcon">{startIcon}</span>}
-                            <span className="select-item-title">{title}</span>
-                            {endIcon && <span className="endIcon">{endIcon}</span>}
-                        </div>
-                    ))
-                )}
-                {children}
+                {/* {isOpen && ( // don't render menu while it closed */}
+                <div className="select-menu">
+                    {!items.length ? (
+                        <div className="select-item disabled">empty.</div>
+                    ) : (
+                        items.map(({ title, startIcon, endIcon, id }, index) => (
+                            <div
+                                key={index}
+                                id={`select-item-${id}`}
+                                className={`select-item ${activeOption === index ? "active" : ""}`}
+                                onClick={() => setActive(id)}
+                                ref={activeOption === index ? activeOptionRef : null}
+                            >
+                                {startIcon && <span className="startIcon">{startIcon}</span>}
+                                <span className="select-item-title">{title}</span>
+                                {endIcon && <span className="endIcon">{endIcon}</span>}
+                            </div>
+                        ))
+                    )}
+                    {children}
+                </div>
+                {/* )} */}
             </div>
-            {/* )} */}
-        </div>
+        </>
     );
 }

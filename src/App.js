@@ -4,6 +4,8 @@ import { Home, About, Error } from "./pages";
 import { Footer, Navbar } from "./components";
 import { Route, Routes } from "react-router-dom";
 import { AnimatePresence } from "framer-motion";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 export default function App() {
     const location = useLocation();
@@ -22,7 +24,7 @@ export default function App() {
 
     return (
         <>
-            {/* {showNav && <Navbar />} */}
+           <ToastContainer autoClose={3000} />
             <AnimatePresence exitBeforeEnter>
                 <Routes location={location} key={location.pathname}>
                     <Route path="/" element={<Home />} />

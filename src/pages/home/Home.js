@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from "react";
-import { Header, Navbar, Footer, FieldBtn, Select, Button } from "../../components";
+import React, { useState, useEffect, useRef } from "react";
+import { Header, Navbar, Footer, FieldBtn, Select, Button, Modal } from "../../components";
 import { motion } from "framer-motion";
 import { useGlobalContext } from "../../context";
 import { useObserver } from "../../hooks/lazy-load/useObserver";
@@ -141,11 +141,18 @@ const ServicesSection = () => {
 };
 
 const Form = () => {
+    const formRef = useRef(null);
+    const { message, send } = localData.svgs;
+    const { preloader } = localData.images;
+
     const { validateContact } = useJoiValidation();
     const [wasSubmitted, setWasSubmitted] = useState(false);
     const [state, setState] = useState({
         name: "",
         email: "",
+        phone: "",
+        service: "",
+        message: "",
     });
 
     const [result, setResult] = useState({});
@@ -175,6 +182,12 @@ const Form = () => {
         setErrorMessages(errors);
     }, [result, wasSubmitted]);
 
+    const { sendMessageToAdmin, isMessageSending } = useGlobalContext();
+
+    const modalCallback = () => {
+        sendMessageToAdmin(formRef.current);
+    };
+
     const [items, setItems] = useState([
         { title: "service 1", isActive: false, id: uuidv4() },
         { title: "service 2", isActive: false, id: uuidv4() },
@@ -186,6 +199,7 @@ const Form = () => {
 
     return (
         <form
+            ref={formRef}
             action="#/dsfd"
             className={`contact-form needs-validation ${wasSubmitted ? "was-submitted" : ""}`}
             onSubmit={onSubmit}
@@ -229,21 +243,55 @@ const Form = () => {
                 />
                 <br />
 
-                <Select {...{ items, setItems, placeholder: "service type", variant: "contained", color:'light' }} />
+                <Select
+                    {...{
+                        items,
+                        setItems,
+                        placeholder: "service type",
+                        variant: "contained",
+                        color: "light",
+                        name: "service",
+                        callback:onChange
+                    }}
+                />
                 <br />
 
                 <FieldBtn
                     name="message"
                     variant="contained"
                     color="light"
-                    placeholder="placeholder"
+                    placeholder="message"
+                    errorMessage={errorMessages.message}
+                    btnClassName={errorMessages.message ? "is-invalid" : "is-valid"}
+                    value={state.message}
+                    callback={onChange}
                     Tag="textarea"
                 />
                 <br />
 
-               
-
-                <Button variant="contained" className="submit" type="submit" name="submit" />
+                {/* <Button variant="contained" className="submit" type="submit" name="submit" /> */}
+                <Modal
+                    preventOpen={validateContact(state).error}
+                    title="details"
+                    buttonTitle={isMessageSending ? "processing..." : "submit"}
+                    buttonDisabled={isMessageSending ? true : false}
+                    buttonEndIcon={isMessageSending ? <img src={preloader} /> : send}
+                    className="modal-dialog-centered"
+                    callback={modalCallback}
+                >
+                    <div className="form-data-details">
+                        {!Object.keys(state).length
+                            ? "no data"
+                            : Object.keys(state).map((item, index) => {
+                                  return (
+                                      <div className="row" key={index}>
+                                          <h6 className="form-data-details-title">{item} :</h6>
+                                          <p className="form-data-details-text">{state[item] || "..."} </p>
+                                      </div>
+                                  );
+                              })}
+                    </div>
+                </Modal>
             </div>
         </form>
     );
@@ -258,7 +306,7 @@ const ContactSection = () => {
                         src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d103890.98966351799!2d-82.64780591444055!3d35.53904366406443!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88598ca93c0f6f09%3A0x94ef31c106343a5d!2sAsheville%2C%20NC%2C%20USA!5e0!3m2!1sen!2sam!4v1687589599664!5m2!1sen!2sam"
                         // width="600"
                         // height="450"
-                        style={{border: 0}}
+                        style={{ border: 0 }}
                         allowFullScreen=""
                         loading="lazy"
                         referrerPolicy="no-referrer-when-downgrade"

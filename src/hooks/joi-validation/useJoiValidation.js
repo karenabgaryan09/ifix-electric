@@ -8,7 +8,8 @@ export default function useValidation() {
             name:  Joi.string().min(3).required(),
             email:  Joi.string().min(3).email({ tlds: { allow: false } }).required(),
             phone:  Joi.string().min(3).required(),
-            // message:  Joi.string().min(5).allow('').optional(),
+            service:  Joi.string().min(5).allow('').optional(),
+            message:  Joi.string().min(5).allow('').optional(),
         }).options({ abortEarly: false })
         return contactSchema.validate(obj);
     };

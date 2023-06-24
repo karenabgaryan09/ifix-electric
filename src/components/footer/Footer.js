@@ -39,6 +39,7 @@ export default function Footer() {
                             </a>
                         </li>
                     </ul>
+                    
                     <ul className="commercial">
                         <li>
                             <div className="commercial-link title">Commercial</div>
@@ -59,6 +60,7 @@ export default function Footer() {
                             </a>
                         </li>
                     </ul>
+
                     <ul className="commercial">
                         <li>
                             <div className="commercial-link title">About</div>
