@@ -1,0 +1,56 @@
+.hero {
+    background-color: rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    text-align: center;
+    .cover-wrapper {
+        background-color: color(warning);
+        overflow: hidden;
+        position: relative;
+        width: 100%;
+        .banner {
+            content: "Electrical";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            max-width: 1000px;
+            width: 100%;
+            text-align: center;
+            // height: 100%;
+            color: rgba(255, 255, 255, 0.3);
+            padding: 10px 20px;
+            font-size: 50px;
+            font-weight: bold;
+            z-index: 1;
+            background-color: color(warning, 0.2);
+            // box-shadow: 0 -3px 3px rgba(255,255,255,0.06);
+            mix-blend-mode: plus-lighter;
+            @include mq(576px) {
+                font-size: 100px;
+            }
+          
+        }
+
+    }
+    .cover {
+        position: relative;
+        margin-left: auto;
+        width: 100%;
+        height: 0;
+        padding-top: 70%;
+        max-width: 1300px;
+        top: 0;
+        opacity: 0.9;
+        @include mq(576px) {
+            padding-top: 500px;
+        }
+        img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    }
+}
