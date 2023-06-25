@@ -8,4 +8,5 @@ export { default as Drawer} from './drawer/Drawer.js'
 export { default as FieldBtn} from './field-btn/FieldBtn.js'
 export { default as Select} from './select/Select.js'
 export { default as Modal} from './modal/Modal.js'
+export { default as Form} from './form/Form.js'
 

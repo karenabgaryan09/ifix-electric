@@ -1,11 +1,10 @@
 import React, { useState, useEffect, useRef } from "react";
-import { Header, Navbar, Footer, FieldBtn, Select, Button, Modal } from "../../components";
+import { Header, Navbar, Footer, Form, Button } from "../../components";
+import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { useGlobalContext } from "../../context";
 import { useObserver } from "../../hooks/lazy-load/useObserver";
 import localData from "../../localData";
-import useJoiValidation from "../../hooks/joi-validation/useJoiValidation";
-import { v4 as uuidv4 } from "uuid";
 
 const HeaderChildren = () => {
     const { cover } = localData.images;
@@ -20,6 +19,51 @@ const HeaderChildren = () => {
                 Electrical
             </div>
         </div>
+    );
+};
+
+const AboutSection = () => {
+    const { electricImage1, electricImage2 } = localData.images;
+
+    return (
+        <section className="about">
+            <div className="container">
+                <div className="col">
+                    <h2 className="about-title display-2">About Us</h2>
+                    <p className="about-description description-text">
+                        <b>Welcome to iFix Electric, where electrical expertise meets unparalleled customer service.</b>
+                        <br />
+                        <br />
+                        With over 25 years of experience in the industry, we have earned a reputation for delivering
+                        top-quality electrical solutions that go above and beyond expectations.
+                        <br />
+                        <br />
+                        At iFix Electric, we understand that exceptional service goes beyond technical proficiency. We
+                        are committed to creating a memorable customer experience by providing not only outstanding
+                        workmanship but also a personal touch. Our goal is to make every interaction with our customers
+                        extraordinary.
+                        <br />
+                        <br />
+                        <br />
+                        <Link to="/about" className="about-link">
+                            <Button name="read more" size="lg" variant="contained" />
+                        </Link>
+                    </p>
+                </div>
+
+                <div className="col">
+                    <div className="pattern">Electric</div>
+                    <div className="cover-wrapper">
+                        <div className="cover cover-top">
+                            <img src={electricImage1} alt="" />
+                        </div>
+                        <div className="cover cover-bottom">
+                            <img src={electricImage2} alt="" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
     );
 };
 
@@ -44,7 +88,7 @@ const ServicesSection = () => {
                 <div className="block block-right">
                     <div className="container">
                         <h2 className="display-2 services-title">Expert Electrical Service & Repairs - Asheville NC</h2>
-                        <div className="services-description">
+                        <div className="services-description description-text">
                             When unexpected electrical problems arise, you need a reliable and skilled electrician to
                             address them promptly. Look no further than iFIX Electric for all your electrical repair
                             needs. Whether it's a minor issue like replacing an outlet or a more significant problem
@@ -140,160 +184,131 @@ const ServicesSection = () => {
     );
 };
 
-const Form = () => {
-    const formRef = useRef(null);
-    const { message, send } = localData.svgs;
-    const { preloader } = localData.images;
-
-    const { validateContact } = useJoiValidation();
-    const [wasSubmitted, setWasSubmitted] = useState(false);
-    const [state, setState] = useState({
-        name: "",
-        email: "",
-        phone: "",
-        service: "",
-        message: "",
-    });
-
-    const [result, setResult] = useState({});
-    const [errorMessages, setErrorMessages] = useState([]);
-
-    const onChange = (e) => {
-        const { name, value } = e.target || e;
-        setState({ ...state, [name]: value });
-    };
-
-    const onSubmit = (e) => {
-        e.preventDefault();
-        const { error } = validateContact(state);
-        if (!error) return;
-        setWasSubmitted(true);
-    };
-
-    useEffect(() => setResult(validateContact(state)), [state]);
-
-    useEffect(() => {
-        if (!wasSubmitted) return;
-        const errors = {};
-        result?.error?.details.forEach((item, index) => {
-            if (errors[item.path[0]]) return;
-            errors[item.path[0]] = item.message;
-        });
-        setErrorMessages(errors);
-    }, [result, wasSubmitted]);
-
-    const { sendMessageToAdmin, isMessageSending } = useGlobalContext();
-
-    const modalCallback = () => {
-        sendMessageToAdmin(formRef.current);
-    };
-
-    const [items, setItems] = useState([
-        { title: "service 1", isActive: false, id: uuidv4() },
-        { title: "service 2", isActive: false, id: uuidv4() },
-        { title: "service 3", isActive: false, id: uuidv4() },
-        { title: "service 4", isActive: false, id: uuidv4() },
-        { title: "service 5", isActive: false, id: uuidv4() },
-        { title: "service 6", isActive: false, id: uuidv4() },
-    ]);
+const WhyUsSection = () => {
+    const { electricImage3 } = localData.images;
+    const { bolt, phone, userGraduate, reply } = localData.svgs;
 
     return (
-        <form
-            ref={formRef}
-            action="#/dsfd"
-            className={`contact-form needs-validation ${wasSubmitted ? "was-submitted" : ""}`}
-            onSubmit={onSubmit}
-            // noValidate
-        >
-            <div className="container">
-                <h2 className="contact-title display-3">Need Service?</h2>
-                <FieldBtn
-                    name="name"
-                    variant="contained"
-                    color="light"
-                    errorMessage={errorMessages.name}
-                    btnClassName={errorMessages.name ? "is-invalid" : "is-valid"}
-                    value={state.name}
-                    callback={onChange}
-                    placeholder="name"
-                />
-                <br />
-
-                <FieldBtn
-                    name="email"
-                    variant="contained"
-                    color="light"
-                    errorMessage={errorMessages.email}
-                    btnClassName={errorMessages.email ? "is-invalid" : "is-valid"}
-                    value={state.email}
-                    callback={onChange}
-                    placeholder="email"
-                />
-                <br />
-
-                <FieldBtn
-                    name="phone"
-                    variant="contained"
-                    color="light"
-                    errorMessage={errorMessages.phone}
-                    btnClassName={errorMessages.phone ? "is-invalid" : "is-valid"}
-                    value={state.phone}
-                    callback={onChange}
-                    placeholder="phone number"
-                />
-                <br />
-
-                <Select
-                    {...{
-                        items,
-                        setItems,
-                        placeholder: "service type",
-                        variant: "contained",
-                        color: "light",
-                        name: "service",
-                        callback:onChange
-                    }}
-                />
-                <br />
-
-                <FieldBtn
-                    name="message"
-                    variant="contained"
-                    color="light"
-                    placeholder="message"
-                    errorMessage={errorMessages.message}
-                    btnClassName={errorMessages.message ? "is-invalid" : "is-valid"}
-                    value={state.message}
-                    callback={onChange}
-                    Tag="textarea"
-                />
-                <br />
-
-                {/* <Button variant="contained" className="submit" type="submit" name="submit" /> */}
-                <Modal
-                    preventOpen={validateContact(state).error}
-                    title="details"
-                    buttonTitle={isMessageSending ? "processing..." : "submit"}
-                    buttonDisabled={isMessageSending ? true : false}
-                    buttonEndIcon={isMessageSending ? <img src={preloader} /> : send}
-                    className="modal-dialog-centered"
-                    callback={modalCallback}
-                >
-                    <div className="form-data-details">
-                        {!Object.keys(state).length
-                            ? "no data"
-                            : Object.keys(state).map((item, index) => {
-                                  return (
-                                      <div className="row" key={index}>
-                                          <h6 className="form-data-details-title">{item} :</h6>
-                                          <p className="form-data-details-text">{state[item] || "..."} </p>
-                                      </div>
-                                  );
-                              })}
-                    </div>
-                </Modal>
+        <section className="why-us">
+            <div className="container-sm">
+                <div className="why-us-cover">
+                    <img src={electricImage3} alt="" />
+                </div>
             </div>
-        </form>
+            <div className="container">
+                <div className="why-us-content">
+                    <div className="wrapper">
+                        <h6 className="why-us-subtitle display-6">why choose us</h6>
+                        <h2 className="why-us-title display-3">Keep Fully Licensed, Bonded, And Insured</h2>
+                    </div>
+
+                    <div className="offer-group">
+                        <div className="offer">
+                            <div className="offer-icon">{bolt}</div>
+                            <div className="wrapper">
+                                <h4 className="offer-title display-4">Professional Electricians</h4>
+                                <p className="offer-description description-text">
+                                    iFIX Electric’s electricians are trained professionals who are well-versed in the
+                                    latest safety standards.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div className="offer">
+                            <div className="offer-icon">{phone}</div>
+                            <div className="wrapper">
+                                <h4 className="offer-title display-4">Customer Support</h4>
+                                <p className="offer-description description-text">
+                                    We pride ourselves on customer service, and have the highest standards of etiquette,
+                                    from the time we enter the residence to cleaning up after a project.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div className="offer">
+                            <div className="offer-icon">{userGraduate}</div>
+                            <div className="wrapper">
+                                <h4 className="offer-title display-4">Continuing Education</h4>
+                                <p className="offer-description description-text">
+                                    All of our electricians are expected to maintain a high level of knowledge pertinent
+                                    to our industry and must take regular courses to stay updated.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div className="offer">
+                            <div className="offer-icon">{reply}</div>
+                            <div className="wrapper">
+                                <h4 className="offer-title display-4">Quick Response</h4>
+                                <p className="offer-description description-text">
+                                    We pride ourselves on answering calls, responding to requests quickly, and efficient
+                                    scheduling.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    );
+};
+
+const TestimonialsSection = () => {
+    const { star } = localData.svgs;
+    const { person1, person2, pattern } = localData.images;
+
+    return (
+        <section className="testimonials">
+            <img className="testimonials-pattern" src={pattern} alt="" />
+            <div className="container">
+                <div className="banner">
+                    <div className="banner-rating">
+                        <div className="banner-stars">
+                            <div className="star star-1">{star}</div>
+                            <div className="star star-2">{star}</div>
+                            <div className="star star-3">{star}</div>
+                            <div className="star star-4">{star}</div>
+                            <div className="star star-5" style={{ opacity: "0.5" }}>
+                                {star}
+                            </div>
+                        </div>
+                        <div className="banner-number">4.8</div>
+                    </div>
+
+                    <p className="banner-description">Our average customer rating is 4.8 / 5 based on 2.549 reviews</p>
+                </div>
+
+                <div className="reviews">
+                    <h2 className="testimonials-title display-2">What Our Customers Say</h2>
+
+                    <div className="review">
+                        <div className="review-description">
+                            iFIX Electric electricians were professional and thorough, and had my electrical outlets and
+                            smoke detectors installed within a day.
+                        </div>
+                        <div className="wrapper">
+                            <div className="review-cover">
+                                <img src={person2} alt="" />
+                            </div>
+                            <div className="review-name">Sarah Wilson</div>
+                        </div>
+                    </div>
+
+                    <div className="review">
+                        <div className="review-description">
+                            When we moved to our new house, we started using iFix Electric to install ceiling fans and
+                            now they do everything we need.
+                        </div>
+                        <div className="wrapper">
+                            <div className="review-cover">
+                                <img src={person1} alt="" />
+                            </div>
+                            <div className="review-name">Daniel Holiday</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
     );
 };
 
@@ -328,7 +343,10 @@ export default function Home() {
                 <HeaderChildren />
             </Header>
             <motion.main className="home-page" {...pageFade}>
+                <AboutSection />
                 <ServicesSection />
+                <WhyUsSection />
+                <TestimonialsSection />
                 <ContactSection />
             </motion.main>
             <Footer />

@@ -57,12 +57,16 @@
         }
     }
     &-toggle {
-        padding: 6px 16px;
+        padding: 10px 15px;
         cursor: pointer;
         width: 100%;
         justify-content: space-between;
         text-transform: none;
-        box-shadow: 0 3px 3px rgba(0,0,0,0.1);
+        box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        &:hover {
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+
+        }
         & > .wrapper {
             display: flex;
             align-items: center;

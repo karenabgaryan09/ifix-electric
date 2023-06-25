@@ -30,6 +30,7 @@ export default function Modal({
         <>
             <Button
                 variant="contained"
+                size="lg"
                 onClick={() => {
                     if(preventOpen) return
                     setDisplay("block");
