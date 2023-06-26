@@ -23,12 +23,11 @@ import localData from "../../localData";
 // };
 
 const HeaderChildren = () => {
-    const { cover } = localData.images;
     const { ref, inView } = useObserver();
 
     return (
         <div className="container" ref={ref}>
-            <div className="hero-content text-warning">
+            <div  className={`hero-content text-warning ${inView ? "lazy-animate" : ""}`} data-lazy="fade-up">
                 <h6 className="display-4 hero-suptitle">Electrical</h6>
                 <h1 className="display-1 hero-title">
                     Electrician Services
