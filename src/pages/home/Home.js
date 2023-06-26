@@ -6,17 +6,37 @@ import { useGlobalContext } from "../../context";
 import { useObserver } from "../../hooks/lazy-load/useObserver";
 import localData from "../../localData";
 
+// const HeaderChildren = () => {
+//     const { cover } = localData.images;
+//     const { ref, inView } = useObserver();
+
+//     return (
+//         <div className="cover-wrapper" ref={ref}>
+//             <div className="cover">
+//                 <img src={cover} alt="" />
+//             </div>
+//             <div className={`banner ${inView ? "lazy-animate" : ""}`} data-lazy="fade-right">
+//                 Electrical
+//             </div>
+//         </div>
+//     );
+// };
+
 const HeaderChildren = () => {
     const { cover } = localData.images;
     const { ref, inView } = useObserver();
 
     return (
-        <div className="cover-wrapper" ref={ref}>
-            <div className="cover">
-                <img src={cover} alt="" />
-            </div>
-            <div className={`banner ${inView ? "lazy-animate" : ""}`} data-lazy="fade-right">
-                Electrical
+        <div className="container" ref={ref}>
+            <div className="hero-content text-warning">
+                <h6 className="display-4 hero-suptitle">Electrical</h6>
+                <h1 className="display-1 hero-title">
+                    Electrician Services
+                    <br /> - Asheville NC
+                </h1>
+                <a href="tel:+3072077426">
+                    <Button name="CALL 307-207-7426" variant="contained" color="warning" />
+                </a>
             </div>
         </div>
     );
@@ -74,7 +94,7 @@ const ServicesSection = () => {
     return (
         <section className="services" ref={ref}>
             <div className="row row-1">
-                <div className="block block-left bg-primary">
+                <div className="block block-left">
                     <div className="container">
                         <h1
                             className={`services-sup-title display-3 ${inView ? "lazy-animate" : ""}`}
@@ -313,8 +333,26 @@ const TestimonialsSection = () => {
 };
 
 const ContactSection = () => {
+    const { message, location } = localData.svgs;
     return (
         <section className="contact">
+            <div className="container">
+                <div className="contact-content">
+                    <div className="contact-info">
+                        <h2 className="contact-title display-2">Need Service?</h2>
+                        <a href="mailto:contact@info.com" target="_blank">
+                            <Button startIcon={message} name="contact@info.com" color="warning" />
+                        </a>
+                        <br />
+
+                        <a href="https://goo.gl/maps/Umeiy1TaS8dXfRQv6" target="_blank">
+                            <Button startIcon={location} name="Asheville North Carolina" color="warning" />
+                        </a>
+                    </div>
+                    <Form />
+                </div>
+            </div>
+
             <div className="map-wrapper">
                 <div className="map">
                     <iframe
@@ -328,7 +366,6 @@ const ContactSection = () => {
                     ></iframe>
                 </div>
             </div>
-            <Form />
         </section>
     );
 };

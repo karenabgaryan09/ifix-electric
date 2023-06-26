@@ -1,4 +1,4 @@
-import React,{useState,useEffect,useRef} from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { Footer, FieldBtn, Select, Button, Modal } from "../../components";
 import { useGlobalContext } from "../../context";
 import localData from "../../localData";
@@ -70,94 +70,92 @@ export default function Form() {
             onSubmit={onSubmit}
             // noValidate
         >
-            <div className="container">
-                <h2 className="contact-title display-3">Need Service?</h2>
-                <FieldBtn
-                    name="name"
-                    variant="contained"
-                    color="light"
-                    errorMessage={errorMessages.name}
-                    btnClassName={errorMessages.name ? "is-invalid" : "is-valid"}
-                    value={state.name}
-                    callback={onChange}
-                    placeholder="name"
-                />
-                <br />
+            <h2 className="contact-title display-3">Message Us</h2>
+            <FieldBtn
+                name="name"
+                variant="contained"
+                color="light"
+                errorMessage={errorMessages.name}
+                btnClassName={errorMessages.name ? "is-invalid" : "is-valid"}
+                value={state.name}
+                callback={onChange}
+                placeholder="name"
+            />
+            <br />
 
-                <FieldBtn
-                    name="email"
-                    variant="contained"
-                    color="light"
-                    errorMessage={errorMessages.email}
-                    btnClassName={errorMessages.email ? "is-invalid" : "is-valid"}
-                    value={state.email}
-                    callback={onChange}
-                    placeholder="email"
-                />
-                <br />
+            <FieldBtn
+                name="email"
+                variant="contained"
+                color="light"
+                errorMessage={errorMessages.email}
+                btnClassName={errorMessages.email ? "is-invalid" : "is-valid"}
+                value={state.email}
+                callback={onChange}
+                placeholder="email"
+            />
+            <br />
 
-                <FieldBtn
-                    name="phone"
-                    variant="contained"
-                    color="light"
-                    errorMessage={errorMessages.phone}
-                    btnClassName={errorMessages.phone ? "is-invalid" : "is-valid"}
-                    value={state.phone}
-                    callback={onChange}
-                    placeholder="phone number"
-                />
-                <br />
+            <FieldBtn
+                name="phone"
+                variant="contained"
+                color="light"
+                errorMessage={errorMessages.phone}
+                btnClassName={errorMessages.phone ? "is-invalid" : "is-valid"}
+                value={state.phone}
+                callback={onChange}
+                placeholder="phone number"
+            />
+            <br />
 
-                <Select
-                    {...{
-                        items,
-                        setItems,
-                        placeholder: "service type",
-                        variant: "contained",
-                        color: "light",
-                        name: "service",
-                        callback:onChange
-                    }}
-                />
-                <br />
+            <Select
+                {...{
+                    items,
+                    setItems,
+                    placeholder: "service type",
+                    variant: "contained",
+                    color: "light",
+                    name: "service",
+                    callback: onChange,
+                }}
+            />
+            <br />
 
-                <FieldBtn
-                    name="message"
-                    variant="contained"
-                    color="light"
-                    placeholder="message"
-                    errorMessage={errorMessages.message}
-                    btnClassName={errorMessages.message ? "is-invalid" : "is-valid"}
-                    value={state.message}
-                    callback={onChange}
-                    Tag="textarea"
-                />
-                <br />
+            <FieldBtn
+                name="message"
+                variant="contained"
+                color="light"
+                placeholder="message"
+                errorMessage={errorMessages.message}
+                btnClassName={errorMessages.message ? "is-invalid" : "is-valid"}
+                value={state.message}
+                callback={onChange}
+                Tag="textarea"
+            />
+            <br />
 
-                {/* <Button variant="contained" className="submit" type="submit" name="submit" /> */}
-                <Modal
-                    preventOpen={validateContact(state).error}
-                    title="details"
-                    buttonTitle={isMessageSending ? "processing..." : "submit"}
-                    buttonDisabled={isMessageSending ? true : false}
-                    buttonEndIcon={isMessageSending ? <img src={preloader} /> : send}
-                    className="modal-dialog-centered"
-                    callback={modalCallback}
-                >
-                    <div className="form-data-details">
-                        {!Object.keys(state).length
-                            ? "no data"
-                            : Object.keys(state).map((item, index) => {
-                                  return (
-                                      <div className="row" key={index}>
-                                          <h6 className="form-data-details-title">{item} :</h6>
-                                          <p className="form-data-details-text">{state[item] || "..."} </p>
-                                      </div>
-                                  );
-                              })}
-                    </div>
-                </Modal>
-            </div>
+            {/* <Button variant="contained" className="submit" type="submit" name="submit" /> */}
+            <Modal
+                preventOpen={validateContact(state).error}
+                title="details"
+                buttonTitle={isMessageSending ? "processing..." : "submit"}
+                buttonDisabled={isMessageSending ? true : false}
+                buttonEndIcon={isMessageSending ? <img src={preloader} /> : send}
+                className="modal-dialog-centered"
+                callback={modalCallback}
+            >
+                <div className="form-data-details">
+                    {!Object.keys(state).length
+                        ? "no data"
+                        : Object.keys(state).map((item, index) => {
+                              return (
+                                  <div className="row" key={index}>
+                                      <h6 className="form-data-details-title">{item} :</h6>
+                                      <p className="form-data-details-text">{state[item] || "..."} </p>
+                                  </div>
+                              );
+                          })}
+                </div>
+            </Modal>
         </form>
     );
 }

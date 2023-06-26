@@ -2,7 +2,40 @@
     background-color: rgba(0, 0, 0, 0.1);
     display: flex;
     align-items: center;
-    text-align: center;
+
+    background-image: url("../../assets/images/cover.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 70vmin;
+    position: relative;
+    @include mq(992px){
+        min-height: 75vh;
+    };
+    &:before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        // background-color: rgba(0, 0, 0, 0.3);
+        background-image: linear-gradient(to right, rgba(0,0,0,0.4) 60%,transparent);
+
+    }
+    &-content {
+        position: relative;
+        z-index: 1;
+        margin-left: 0;
+        max-width: 500px;
+        @include mq(992px){
+            max-width: 700px;
+        };
+    }
+    &-title {
+        color: #fff;
+        margin-bottom: 30px;
+    }
     .cover-wrapper {
         background-color: color(warning);
         overflow: hidden;
@@ -28,9 +61,7 @@
             @include mq(576px) {
                 font-size: 100px;
             }
-          
         }
-
     }
     .cover {
         position: relative;

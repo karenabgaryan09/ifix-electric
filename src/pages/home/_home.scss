@@ -1,60 +1,56 @@
 .home-page {
-
     // ABOUT US
     .about {
         .container {
             display: grid;
             grid-gap: 150px 50px;
             align-items: center;
-            @include mq(992px){
+            @include mq(992px) {
                 grid-template-columns: 1fr 1fr;
-
             }
-         }
-         &-link {
+        }
+        &-link {
             display: block;
             margin-left: auto;
             width: fit-content;
         }
         .btn {
         }
-        
-         .col {
+
+        .col {
             position: relative;
-         }
-         &-description {
-           
+        }
+        &-description {
             b {
                 font-size: 18px;
             }
-         }
-         .cover-wrapper {
+        }
+        .cover-wrapper {
             width: 100%;
             max-width: 370px;
             margin-left: auto;
             // margin-right: auto;
-            @include mq(992px){
+            @include mq(992px) {
                 margin-right: 0;
             }
-         }
-        
-         .pattern {
+        }
+
+        .pattern {
             position: absolute;
             bottom: 0;
             left: 50px;
             font-size: 140px;
-            color: rgba(0,0,0,0.1);
+            color: rgba(0, 0, 0, 0.1);
             line-height: 1;
             font-weight: bold;
             transform: rotateZ(-90deg);
             z-index: 1;
             transform-origin: left;
-            @include mq(992px){
+            @include mq(992px) {
                 left: 150px;
-
             }
-         }
-         .cover {
+        }
+        .cover {
             position: relative;
             height: 0;
             width: 100%;
@@ -62,7 +58,7 @@
                 padding-top: 100%;
             }
             &-bottom {
-                padding-top:100%;
+                padding-top: 100%;
             }
             img {
                 position: absolute;
@@ -72,9 +68,9 @@
                 height: 100%;
                 object-fit: cover;
             }
-         }
+        }
     }
-    
+
     // SERVICES SECTION
     .services {
         padding: 0;
@@ -87,6 +83,7 @@
             &-1 {
                 .block {
                     &-left {
+                        background-color: rgb(56, 60, 71);
                     }
                     &-right {
                     }
@@ -182,60 +179,7 @@
         }
     }
 
-    // CONTACT SECTION
-    .contact {
-        display: grid;
-        grid-gap: 60px 30px;
-        background-color: color(dark,.1);
-
-        &-title {
-            margin-bottom: 25px;
-        }
-        .map-wrapper {
-            .map {
-                position: relative;
-                width: 100%;
-                height: 0;
-                padding-top: 56.25%;
-                border-radius: 4px;
-                overflow: hidden;
-                box-shadow: 0 3px 3px rgba(0,0,0,0.1);
-                iframe {
-                    position: absolute;
-                    top: 0;
-                    left: 0;
-                    width: 100%;
-                    height: 100%;
-                    
-                }
-                @include mq(992px){
-                    height: 550px;
-                    padding: 0;
-
-                }
-            }
-        }
-
-        .contact-form {
-            .select {
-                max-width: 100%;
-            }
-        }
-
-        @include mq(992px){
-            grid-template-columns: 1fr 1.3fr;
-            .contact-form {
-                .container {
-                    padding-left: 10px;
-                    padding-right: 10px;
-                    margin-left: 0;
-                    max-width: 600px;
-                }
-            }
-        }
-    }
-
-    // TEXTIMONIALS 
+    // TEXTIMONIALS
     .testimonials {
         position: relative;
         background-color: rgb(56, 60, 71);
@@ -246,7 +190,7 @@
         &-pattern {
             opacity: 0.1;
             position: absolute;
-            top:0;
+            top: 0;
             right: 0;
             width: 400px;
             height: auto;
@@ -256,23 +200,21 @@
             display: flex;
             align-items: flex-start;
             flex-direction: column;
-            gap: 100px 30px ;
-            @include mq(992px){
+            gap: 100px 30px;
+            @include mq(992px) {
                 flex-direction: row;
-                
             }
-            @include mq(1200px){
+            @include mq(1200px) {
                 gap: 100px;
             }
         }
         .banner {
             background-color: color(warning);
             padding: 30px;
-            @include mq(992px){
+            @include mq(992px) {
                 max-width: 320px;
-                
             }
-            @include mq(1200px){
+            @include mq(1200px) {
                 max-width: 360px;
                 padding: 40px;
             }
@@ -281,18 +223,16 @@
                 justify-content: space-between;
                 gap: 30px;
                 margin-bottom: 30px;
-                @include mq(992px){
+                @include mq(992px) {
                     margin-bottom: 60px;
-                    
                 }
-                @include mq(1200px){
+                @include mq(1200px) {
                     margin-bottom: 100px;
                 }
             }
             &-stars {
                 display: flex;
                 gap: 3px;
-
             }
             &-number {
                 font-size: 80px;
@@ -302,12 +242,10 @@
             &-description {
                 font-weight: 600;
                 font-size: 18px;
-
             }
             svg {
                 height: 15px;
                 path {
-
                 }
             }
         }
@@ -323,7 +261,7 @@
             padding-bottom: 20px;
             margin-bottom: 50px;
             color: #fff;
-            border-bottom: 1px solid rgba(255,255,255,0.1);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 
             & > .wrapper {
                 display: flex;
@@ -341,7 +279,7 @@
                 font-size: 20px;
                 font-weight: 300;
                 margin-bottom: 20px;
-                color: rgba(255,255,255,0.9)
+                color: rgba(255, 255, 255, 0.9);
             }
             &-name {
                 font-size: 16px;
@@ -352,15 +290,14 @@
 
     // WHY US
     .why-us {
-       
         &-cover {
             position: relative;
             height: 0;
             padding-top: 47%;
             width: 100%;
             overflow: hidden;
-            margin: 0 auto  ;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            margin: 0 auto;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
             margin-bottom: 150px;
             img {
                 position: absolute;
@@ -369,31 +306,29 @@
                 height: 100%;
                 width: 100%;
                 object-fit: cover;
-
             }
         }
         &-title {
         }
         .container {
-
         }
         &-content {
             display: grid;
             grid-gap: 70px;
-            
-            @include mq(1200px){
+
+            @include mq(1200px) {
                 grid-template-columns: 300px 1fr;
             }
-            @include mq(1400px){
+            @include mq(1400px) {
                 grid-template-columns: 340px 1fr;
             }
             & > .wrapper {
                 // max-width: 340px;
-                margin:  0 auto ;
+                margin: 0 auto;
                 text-align: center;
-                @include mq(1200px){
-                  text-align: left;
-                  margin: 0;
+                @include mq(1200px) {
+                    text-align: left;
+                    margin: 0;
                 }
             }
         }
@@ -418,4 +353,59 @@
         }
     }
 
+    // CONTACT SECTION
+    .contact {
+      padding-bottom: 0;
+        background-color: color(dark, 0.1);
+
+        &-content {
+            display: grid;
+            grid-gap: 60px 30px;
+            margin-bottom: 100px;
+            @include mq(992px) {
+                justify-content: space-between;
+                grid-template-columns: 1fr 600px;
+            }
+          
+          
+        }
+        &-title {
+            margin-bottom: 25px;
+        }
+
+        .contact-form {
+            // max-width: 600px;
+            .select {
+                max-width: 100%;
+            }
+        }
+
+
+        .map-wrapper {
+            .map {
+                position: relative;
+                width: 100%;
+                height: 0;
+                padding-top: 56.25%;
+                border-radius: 4px;
+                overflow: hidden;
+                box-shadow: 0 3px 3px rgba(0, 0, 0, 0.1);
+                iframe {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                }
+                @include mq(992px) {
+                    height: 550px;
+                    padding: 0;
+                }
+            }
+        }
+
+  
+
+   
+    }
 }

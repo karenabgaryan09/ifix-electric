@@ -58,7 +58,9 @@ code {
 }
 
 .display-1 {
-    font-size: calc(1.625rem + 4.5vw);
+    font-size: calc(1.3rem + 4vw);
+    font-weight: 600;
+    line-height: 1.1;
 }
 .display-2 {
     font-size: calc(1.575rem + 2vw);
@@ -78,6 +80,7 @@ code {
 }
 .display-5 {
     font-size: calc(1.425rem + 2.1vw);
+    font-weight: bold;
 }
 .display-6 {
     font-size: 18px;
@@ -150,9 +153,9 @@ img {
     @include mq(1200px) {
         max-width: calc(1140px + 80px * 2); // 60
     }
-    @include mq(1400px) {
-        max-width: calc(1320px + 80px * 2); // 80
-    }
+    // @include mq(1400px) {
+    //     max-width: calc(1320px + 80px * 2); // 80
+    // }
     // @include mq(1920px) {
     //     max-width: mw(xl); //full hd
     // }
