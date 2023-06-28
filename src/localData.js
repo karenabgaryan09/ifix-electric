@@ -14,11 +14,19 @@ const images = {
     electricImage1: require("./assets/images/electric-image-1.jpg"),
     electricImage2: require("./assets/images/electric-image-2.jpg"),
     electricImage3: require("./assets/images/electric-image-3.jpg"),
+    repairs: require("./assets/images/services/repairs.jpg"),
+    installations: require("./assets/images/services/installations.jpg"),
+    safety: require("./assets/images/services/safety.jpg"),
 };
 
 const localData = {
     images,
     svgs: {
+        caretRight: (
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 512">
+                <path d="M246.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-128-128c-9.2-9.2-22.9-11.9-34.9-6.9s-19.8 16.6-19.8 29.6l0 256c0 12.9 7.8 24.6 19.8 29.6s25.7 2.2 34.9-6.9l128-128z" />
+            </svg>
+        ),
         location: (
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512">
                 <path d="M215.7 499.2C267 435 384 279.4 384 192C384 86 298 0 192 0S0 86 0 192c0 87.4 117 243 168.3 307.2c12.3 15.3 35.1 15.3 47.4 0zM192 128a64 64 0 1 1 0 128 64 64 0 1 1 0-128z" />

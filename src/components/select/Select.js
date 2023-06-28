@@ -5,7 +5,7 @@ import { Button } from "../";
 export default function Select({
     items = [],
     setItems = () => console.log('Error: "setItems function required"'),
-    placeholder = "select",
+    placeholder = "",
     className = "",
     variant,
     color,
@@ -13,6 +13,8 @@ export default function Select({
     children,
     name = "",
     callback = () => {},
+    label = '',
+    required = false
 }) {
     const [isOpen, setIsOpen] = useState(false);
     const [activeOption, setActiveOption] = useState(-1);
@@ -21,7 +23,7 @@ export default function Select({
     const selectRef = useRef(null);
     const activeOptionRef = useRef(null);
 
-    const { chevronDown } = localData.svgs;
+    const { caretDown } = localData.svgs;
 
     useEffect(() => {
         let handler = (e) => !clickWrapper.current.contains(e.target) && setIsOpen(false);
@@ -130,6 +132,11 @@ export default function Select({
 
     return (
         <>
+            {label && (
+                <label className="form-label" htmlFor={name}>
+                    {label} {required && "*"}
+                </label>
+            )}
             <div
                 className={`select ${isOpen ? "active" : ""}  ${className}`}
                 ref={selectRef}
@@ -145,7 +152,7 @@ export default function Select({
                         onKeyDown={handleKeyDown}
                     >
                         {!items.length ? getPlaceholder() : getActiveItem()}
-                        <span className="endIcon select-toggle-icon">{toggleIcon || chevronDown}</span>
+                        <span className="endIcon select-toggle-icon">{toggleIcon || caretDown}</span>
                     </Button>
                 </div>
 

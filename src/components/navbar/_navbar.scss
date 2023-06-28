@@ -3,8 +3,8 @@
     flex-wrap: wrap;
     align-items: center;
     justify-content: space-between;
-    padding-top: 1.5rem;
-    padding-bottom: 1.5rem;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
     // background-color: color(primary);
     transition: padding 0.3s ease;
     &.shrink {
@@ -12,7 +12,7 @@
         padding-bottom: 0.5rem;
     }
 
-    & > .container-fluid {
+    & > .container {
         display: flex;
         flex-wrap: inherit;
         align-items: center;
@@ -91,15 +91,15 @@
         padding-left: 0;
         margin-bottom: 0;
         list-style: none;
-        margin-right: auto;
-
+        margin-left: auto;
         .nav-link,
         .dropdown-toggle {
+            white-space: nowrap;
             padding: 0.5rem 1rem !important;
-            color: color(warning);
+            color: color(dark);
             text-transform: capitalize;
             font-size: 1rem;
-            font-weight: 500;
+            font-weight: 300;
             background-color: transparent;
             border: none;
             // outline: none;
@@ -111,8 +111,7 @@
                 padding: 0;
             }
             &.active {
-                color: #000;
-                font-weight: bold;
+                color: color(danger);
             }
             &:hover:not(.active) {
                 color: color(dark);
@@ -187,7 +186,7 @@
 
 @media (min-width: 992px) {
     .navbar-expand-lg {
-        .container-fluid {
+        .container {
             .schedule-btn {
                 display: flex;
             }

@@ -7,6 +7,10 @@
     padding: 0;
     box-sizing: border-box;
 }
+::selection {
+    background: color(danger);
+    color: #000;
+  }
 
 ::-webkit-scrollbar {
     width: 10px;
@@ -24,7 +28,7 @@
 
 html {
     // @include mq(1920px) {}//default 16px
-    // scroll-behavior: smooth;
+    scroll-behavior: smooth;
     @include mq(2560px) {
         font-size: calc(16 * 100 / (1920 * 100 / 2560)) + px; //2k
     }
@@ -59,17 +63,23 @@ code {
 
 .display-1 {
     font-size: calc(1.3rem + 4vw);
-    font-weight: 600;
-    line-height: 1.1;
+    line-height: 0.9em;
+    font-family: Staatliches;
+    font-weight: 400;
 }
 .display-2 {
     font-size: calc(1.575rem + 2vw);
-    font-weight: 500;
-    margin-bottom: 30px;
+    line-height: 0.9em;
+    font-family: Staatliches;
+    font-weight: 400;
+    margin-bottom: 40px;
 }
 .display-3 {
     font-size: calc(1rem + 1vw);
-    font-weight: 500;
+    font-weight: 400;
+  
+    font-family: Staatliches;
+    line-height: 1em;
 }
 .display-4 {
     // font-size: calc(1.475rem + 2.7vw);
@@ -90,14 +100,14 @@ code {
 }
 @media (min-width: 1200px) {
     .display-1 {
-        font-size: 5rem;
+        font-size: 4.6875rem;
     }
     .display-2 {
-        font-size: 3.5rem;
+        font-size: 3.75rem;
         margin-bottom: 50px;
     }
     .display-3 {
-        font-size: 2rem;
+        font-size: 2.5rem;
         margin-bottom: 40px;
     }
     .display-4 {
@@ -280,13 +290,13 @@ img {
 // CONDITIONAL
 
 section {
-    padding: 60px 0;
+    padding: 100px 0;
     // min-height: 100vh;
 }
 
-@include mq(768px) {
+@include mq(992px) {
     section {
-        padding: 120px 0;
+        padding: 200px 0;
     }
 }
 
@@ -297,8 +307,12 @@ section {
 }
 
 .description-text {
+    font-family: Montserrat;
     color: color(dark, 0.9);
     font-weight: 300;
+    color: rgba(0, 0, 0, 0.9);
+    line-height: 1.6em;
+    font-size: 1rem;
 }
 .description-text-2 {
     max-width: 700px;
@@ -307,4 +321,23 @@ section {
     line-height: 1.6em;
     color: rgba(0, 0, 0, 1);
     font-family: Montserrat;
+}
+
+.primary-text {
+    color: #000;
+    line-height: 1.2em;
+    font-weight: 300;
+    font-size: 1.25rem;
+    font-weight: bold;
+}
+
+label {
+    font-size: 16px;
+    color: color(secondary);
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+
+a .btn {
+    text-align: left;
 }

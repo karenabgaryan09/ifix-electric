@@ -1,43 +1,374 @@
 import React, { useState, useEffect, useRef } from "react";
-import { Header, Navbar, Footer, Form, Button } from "../../components";
+import { Header, Navbar, Footer, Form, Button, Accordion } from "../../components";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { useGlobalContext } from "../../context";
 import { useObserver } from "../../hooks/lazy-load/useObserver";
 import localData from "../../localData";
-
-// const HeaderChildren = () => {
-//     const { cover } = localData.images;
-//     const { ref, inView } = useObserver();
-
-//     return (
-//         <div className="cover-wrapper" ref={ref}>
-//             <div className="cover">
-//                 <img src={cover} alt="" />
-//             </div>
-//             <div className={`banner ${inView ? "lazy-animate" : ""}`} data-lazy="fade-right">
-//                 Electrical
-//             </div>
-//         </div>
-//     );
-// };
+import { v4 as uuidv4 } from "uuid";
 
 const HeaderChildren = () => {
     const { ref, inView } = useObserver();
-
+    const { location } = localData.svgs;
     return (
         <div className="container" ref={ref}>
-            <div  className={`hero-content text-warning ${inView ? "lazy-animate" : ""}`} data-lazy="fade-up">
-                <h6 className="display-4 hero-suptitle">Electrical</h6>
+            <div className={`hero-content text-danger ${inView ? "lazy-animate" : ""}`} data-lazy="fade-up">
+                {/* <h6 className="display-4 hero-suptitle">Electrical</h6> */}
+                <a href="https://goo.gl/maps/Umeiy1TaS8dXfRQv6" target="_blank" className="location-link">
+                    <Button startIcon={location} size="xl" name="Asheville North Carolina" color="danger" />
+                </a>
+                <br />
+                <br />
                 <h1 className="display-1 hero-title">
                     Electrician Services
                     <br /> - Asheville NC
                 </h1>
                 <a href="tel:+3072077426">
-                    <Button name="CALL 307-207-7426" variant="contained" color="warning" />
+                    <Button name="CALL 307-207-7426" variant="contained" color="danger" />
                 </a>
             </div>
         </div>
+    );
+};
+
+// const ServicesSection = () => {
+//     const { ref, inView } = useObserver();
+//     const { logo2 } = localData.images;
+
+//     return (
+//         <section className="services" ref={ref}>
+//             <div className="row row-1">
+//                 <div className="block block-left">
+//                     <div className="container">
+//                         <h1
+//                             className={`services-sup-title display-3 ${inView ? "lazy-animate" : ""}`}
+//                             data-lazy="fade-right"
+//                             style={{ transitionDelay: "1s" }}
+//                         >
+//                             Electrician Services - Asheville NC
+//                         </h1>
+//                     </div>
+//                 </div>
+//                 <div className="block block-right">
+//                     <div className="container">
+//                         <h2 className="display-2 services-title">Expert Electrical Service & Repairs - Asheville NC</h2>
+//                         <div className="services-description description-text">
+//                             When unexpected electrical problems arise, you need a reliable and skilled electrician to
+//                             address them promptly. Look no further than iFIX Electric for all your electrical repair
+//                             needs. Whether it's a minor issue like replacing an outlet or a more significant problem
+//                             such as a faulty breaker that keeps tripping, iFIX Electric possesses the necessary
+//                             expertise to handle any residential electrical service and repairs.
+//                             <br />
+//                             <br />
+//                             At iFIX Electric, we understand the importance of resolving electrical issues effectively
+//                             and ensuring your safety for the long term. That's why we offer a comprehensive range of
+//                             services, from simple fixes to emergency electrical assistance. Our team performs necessary
+//                             repairs that not only fix the immediate problem but also provide ongoing electrical
+//                             maintenance and regular inspections to prepare you for the future.
+//                             <br />
+//                             <br />
+//                             What sets our certified electricians at iFIX Electric apart is their:
+//                             <br />
+//                             <br />
+//                             <ul>
+//                                 <li>Experience</li>
+//                                 <li>Professionalism</li>
+//                                 <li>Timeliness</li>
+//                                 <li>Courtesy</li>
+//                             </ul>
+//                             <br />
+//                             Each member of our team has the necessary expertise and knowledge to deliver exceptional
+//                             service.
+//                             <br />
+//                             <br />
+//                             We take pride in not only working in Asheville North Carolina, but also living in these
+//                             areas. As your neighbors, we are dedicated to providing top-notch electrical repairs,
+//                             ensuring the job is done right every time.
+//                             <br />
+//                             <br />
+//                             Don't hesitate to contact iFIX Electric to learn more about our services. Trust us to handle
+//                             your electrical repairs with precision and care.
+//                             <br />
+//                             <br />
+//                         </div>
+//                     </div>
+//                 </div>
+//             </div>
+
+//             <div className="row row-2">
+//                 <div className="block block-left bg-warning">
+//                     <h1 className={`services-sup-title`} style={{ opacity: 0 }}>
+//                         Electrician Services - Asheville NC
+//                     </h1>
+//                     <img src={logo2} alt="" />
+//                 </div>
+//                 <div className="block block-right bg-light">
+//                     <div className="container">
+//                         <h2 className="display-2 services-title"> iFIX Electric’s Residential Services</h2>
+//                         <div className="services-description">
+//                             When homeowners encounter electrical problems, it is crucial to seek the expertise of a
+//                             professional. At iFIX Electric, our electricians possess the necessary professional
+//                             experience to address a wide range of electrical services and repairs safely, effectively,
+//                             and efficiently. We highly recommend regular electrical inspections, particularly for those
+//                             who have recently moved into older homes. In the event that our iFIX Electric electrician
+//                             identifies any issues, you can trust that they will provide clear communication regarding
+//                             all the work being done. Even if homeowners are familiar with their electrical system,
+//                             certain problems may arise that require the assistance of a professional.
+//                             <br />
+//                             <br />
+//                             Our electrical services and repairs include:
+//                             <br />
+//                             <br />
+//                             <ul>
+//                                 <li>Electrical repairs</li>
+//                                 <li>Surge protectors</li>
+//                                 <li>Electrical inspections</li>
+//                                 <li>Indoor/outdoor lighting</li>
+//                                 <li>Generator installation</li>
+//                                 <li>Electrical upgrades</li>
+//                                 <li>Appliance installation and repair</li>
+//                                 <li>Emergency electrical services</li>
+//                             </ul>
+//                             <br />
+//                             While the above list encompasses many of our commonly-performed electrical services, we are
+//                             capable of addressing much more. If you are experiencing any issues with any of the
+//                             electrical components in your home, don't hesitate to contact an iFIX Electric electrician
+//                             today.
+//                             <br />
+//                             <br />
+//                             You can also conveniently schedule an appointment with one of our certified electricians by
+//                             completing our contact form.
+//                             <br />
+//                             <br />
+//                         </div>
+//                     </div>
+//                 </div>
+//             </div>
+//         </section>
+//     );
+// };
+
+const ServicesSection = () => {
+    const { ref, inView } = useObserver();
+    const { repairs, installations, safety } = localData.images;
+
+    return (
+        <section className="services" ref={ref} id="services">
+            <div className="container">
+                <h2 className="servives-title display-2">Our Services</h2>
+                <div className="card-group">
+                    <div className="card service-card">
+                        <div className="card-header">
+                            <div className="card-image">
+                                <img src={repairs} alt="" />
+                            </div>
+                        </div>
+                        <div className="wrapper">
+                            <h3 className="card-title display-3">Electrical Repairs</h3>
+                            <Accordion
+                                items={[
+                                    {
+                                        buttonName: "Emergency Repairs",
+                                        variant: "text",
+                                        color: "dark",
+                                        content: (
+                                            <p className="description description-text">
+                                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus,
+                                                luctus nec ullamcorper mattis, pulvinar dapibus leo.
+                                            </p>
+                                        ),
+                                    },
+                                    {
+                                        buttonName: "Electrical Panel",
+                                        variant: "text",
+                                        color: "dark",
+                                        content: (
+                                            <p className="description description-text">
+                                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus,
+                                                luctus nec ullamcorper mattis, pulvinar dapibus leo.
+                                            </p>
+                                        ),
+                                    },
+                                    {
+                                        buttonName: "Lighting",
+                                        variant: "text",
+                                        color: "dark",
+                                        content: (
+                                            <p className="description description-text">
+                                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus,
+                                                luctus nec ullamcorper mattis, pulvinar dapibus leo.
+                                            </p>
+                                        ),
+                                    },
+                                    {
+                                        buttonName: "Ceiling Fans",
+                                        variant: "text",
+                                        color: "dark",
+                                        content: (
+                                            <p className="description description-text">
+                                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus,
+                                                luctus nec ullamcorper mattis, pulvinar dapibus leo.
+                                            </p>
+                                        ),
+                                    },
+                                    {
+                                        buttonName: "Receptacles / Switches",
+                                        variant: "text",
+                                        color: "dark",
+                                        content: (
+                                            <p className="description description-text">
+                                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus,
+                                                luctus nec ullamcorper mattis, pulvinar dapibus leo.
+                                            </p>
+                                        ),
+                                    },
+                                ]}
+                            />
+                        </div>
+                    </div>
+
+                    <div className="card service-card">
+                        <div className="card-header">
+                            <div className="card-image">
+                                <img src={installations} alt="" />
+                            </div>
+                        </div>
+                        <div className="wrapper">
+                            <h3 className="card-title display-3">Installations</h3>
+                            <Accordion
+                                items={[
+                                    {
+                                        buttonName: "Carbon Monoxide and Smoke Detectors",
+                                        variant: "text",
+                                        color: "dark",
+                                        content: (
+                                            <p className="description description-text">
+                                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus,
+                                                luctus nec ullamcorper mattis, pulvinar dapibus leo.
+                                            </p>
+                                        ),
+                                    },
+                                    {
+                                        buttonName: "Ceiling and Bathroom Fans",
+                                        variant: "text",
+                                        color: "dark",
+                                        content: (
+                                            <p className="description description-text">
+                                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus,
+                                                luctus nec ullamcorper mattis, pulvinar dapibus leo.
+                                            </p>
+                                        ),
+                                    },
+                                    {
+                                        buttonName: "EV Chargers / Smart Home Devices",
+                                        variant: "text",
+                                        color: "dark",
+                                        content: (
+                                            <p className="description description-text">
+                                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus,
+                                                luctus nec ullamcorper mattis, pulvinar dapibus leo.
+                                            </p>
+                                        ),
+                                    },
+                                    {
+                                        buttonName: "Receptacle / Switches / Lighting",
+                                        variant: "text",
+                                        color: "dark",
+                                        content: (
+                                            <p className="description description-text">
+                                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus,
+                                                luctus nec ullamcorper mattis, pulvinar dapibus leo.
+                                            </p>
+                                        ),
+                                    },
+                                    {
+                                        buttonName: "Generators / Breakers / Electrical Panels",
+                                        variant: "text",
+                                        color: "dark",
+                                        content: (
+                                            <p className="description description-text">
+                                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus,
+                                                luctus nec ullamcorper mattis, pulvinar dapibus leo.
+                                            </p>
+                                        ),
+                                    },
+                                ]}
+                            />
+                        </div>
+                    </div>
+
+                    <div className="card service-card">
+                        <div className="card-header">
+                            <div className="card-image">
+                                <img src={safety} alt="" />
+                            </div>
+                        </div>
+                        <div className="wrapper">
+                            <h3 className="card-title display-3">Electrical Safety</h3>
+                            <Accordion
+                                items={[
+                                    {
+                                        buttonName: "Check Breaker integrity",
+                                        variant: "text",
+                                        color: "dark",
+                                        content: (
+                                            <p className="description description-text">
+                                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus,
+                                                luctus nec ullamcorper mattis, pulvinar dapibus leo.
+                                            </p>
+                                        ),
+                                    },
+                                    {
+                                        buttonName: "Check Receptacles (Child Proof)",
+                                        variant: "text",
+                                        color: "dark",
+                                        content: (
+                                            <p className="description description-text">
+                                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus,
+                                                luctus nec ullamcorper mattis, pulvinar dapibus leo.
+                                            </p>
+                                        ),
+                                    },
+                                    {
+                                        buttonName: "Overloading of Circuits",
+                                        variant: "text",
+                                        color: "dark",
+                                        content: (
+                                            <p className="description description-text">
+                                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus,
+                                                luctus nec ullamcorper mattis, pulvinar dapibus leo.
+                                            </p>
+                                        ),
+                                    },
+                                    {
+                                        buttonName: "Evaluate Electrical Panel",
+                                        variant: "text",
+                                        color: "dark",
+                                        content: (
+                                            <p className="description description-text">
+                                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus,
+                                                luctus nec ullamcorper mattis, pulvinar dapibus leo.
+                                            </p>
+                                        ),
+                                    },
+                                    {
+                                        buttonName: "Electrical Safety Inspection",
+                                        variant: "text",
+                                        color: "dark",
+                                        content: (
+                                            <p className="description description-text">
+                                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus,
+                                                luctus nec ullamcorper mattis, pulvinar dapibus leo.
+                                            </p>
+                                        ),
+                                    },
+                                ]}
+                            />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
     );
 };
 
@@ -45,32 +376,9 @@ const AboutSection = () => {
     const { electricImage1, electricImage2 } = localData.images;
 
     return (
-        <section className="about">
+        <section className="about" id="about">
             <div className="container">
-                <div className="col">
-                    <h2 className="about-title display-2">About Us</h2>
-                    <p className="about-description description-text">
-                        <b>Welcome to iFix Electric, where electrical expertise meets unparalleled customer service.</b>
-                        <br />
-                        <br />
-                        With over 25 years of experience in the industry, we have earned a reputation for delivering
-                        top-quality electrical solutions that go above and beyond expectations.
-                        <br />
-                        <br />
-                        At iFix Electric, we understand that exceptional service goes beyond technical proficiency. We
-                        are committed to creating a memorable customer experience by providing not only outstanding
-                        workmanship but also a personal touch. Our goal is to make every interaction with our customers
-                        extraordinary.
-                        <br />
-                        <br />
-                        <br />
-                        <Link to="/about" className="about-link">
-                            <Button name="read more" size="lg" variant="contained" />
-                        </Link>
-                    </p>
-                </div>
-
-                <div className="col">
+                <div className="about-cover">
                     <div className="pattern">Electric</div>
                     <div className="cover-wrapper">
                         <div className="cover cover-top">
@@ -81,122 +389,28 @@ const AboutSection = () => {
                         </div>
                     </div>
                 </div>
-            </div>
-        </section>
-    );
-};
 
-const ServicesSection = () => {
-    const { ref, inView } = useObserver();
-    const { logo2 } = localData.images;
-
-    return (
-        <section className="services" ref={ref}>
-            <div className="row row-1">
-                <div className="block block-left">
-                    <div className="container">
-                        <h1
-                            className={`services-sup-title display-3 ${inView ? "lazy-animate" : ""}`}
-                            data-lazy="fade-right"
-                            style={{ transitionDelay: "1s" }}
-                        >
-                            Electrician Services - Asheville NC
-                        </h1>
-                    </div>
-                </div>
-                <div className="block block-right">
-                    <div className="container">
-                        <h2 className="display-2 services-title">Expert Electrical Service & Repairs - Asheville NC</h2>
-                        <div className="services-description description-text">
-                            When unexpected electrical problems arise, you need a reliable and skilled electrician to
-                            address them promptly. Look no further than iFIX Electric for all your electrical repair
-                            needs. Whether it's a minor issue like replacing an outlet or a more significant problem
-                            such as a faulty breaker that keeps tripping, iFIX Electric possesses the necessary
-                            expertise to handle any residential electrical service and repairs.
-                            <br />
-                            <br />
-                            At iFIX Electric, we understand the importance of resolving electrical issues effectively
-                            and ensuring your safety for the long term. That's why we offer a comprehensive range of
-                            services, from simple fixes to emergency electrical assistance. Our team performs necessary
-                            repairs that not only fix the immediate problem but also provide ongoing electrical
-                            maintenance and regular inspections to prepare you for the future.
-                            <br />
-                            <br />
-                            What sets our certified electricians at iFIX Electric apart is their:
-                            <br />
-                            <br />
-                            <ul>
-                                <li>Experience</li>
-                                <li>Professionalism</li>
-                                <li>Timeliness</li>
-                                <li>Courtesy</li>
-                            </ul>
-                            <br />
-                            Each member of our team has the necessary expertise and knowledge to deliver exceptional
-                            service.
-                            <br />
-                            <br />
-                            We take pride in not only working in Asheville North Carolina, but also living in these
-                            areas. As your neighbors, we are dedicated to providing top-notch electrical repairs,
-                            ensuring the job is done right every time.
-                            <br />
-                            <br />
-                            Don't hesitate to contact iFIX Electric to learn more about our services. Trust us to handle
-                            your electrical repairs with precision and care.
-                            <br />
-                            <br />
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div className="row row-2">
-                <div className="block block-left bg-warning">
-                    <h1 className={`services-sup-title`} style={{ opacity: 0 }}>
-                        Electrician Services - Asheville NC
-                    </h1>
-                    <img src={logo2} alt="" />
-                </div>
-                <div className="block block-right bg-light">
-                    <div className="container">
-                        <h2 className="display-2 services-title"> iFIX Electric’s Residential Services</h2>
-                        <div className="services-description">
-                            When homeowners encounter electrical problems, it is crucial to seek the expertise of a
-                            professional. At iFIX Electric, our electricians possess the necessary professional
-                            experience to address a wide range of electrical services and repairs safely, effectively,
-                            and efficiently. We highly recommend regular electrical inspections, particularly for those
-                            who have recently moved into older homes. In the event that our iFIX Electric electrician
-                            identifies any issues, you can trust that they will provide clear communication regarding
-                            all the work being done. Even if homeowners are familiar with their electrical system,
-                            certain problems may arise that require the assistance of a professional.
-                            <br />
-                            <br />
-                            Our electrical services and repairs include:
-                            <br />
-                            <br />
-                            <ul>
-                                <li>Electrical repairs</li>
-                                <li>Surge protectors</li>
-                                <li>Electrical inspections</li>
-                                <li>Indoor/outdoor lighting</li>
-                                <li>Generator installation</li>
-                                <li>Electrical upgrades</li>
-                                <li>Appliance installation and repair</li>
-                                <li>Emergency electrical services</li>
-                            </ul>
-                            <br />
-                            While the above list encompasses many of our commonly-performed electrical services, we are
-                            capable of addressing much more. If you are experiencing any issues with any of the
-                            electrical components in your home, don't hesitate to contact an iFIX Electric electrician
-                            today.
-                            <br />
-                            <br />
-                            You can also conveniently schedule an appointment with one of our certified electricians by
-                            completing our contact form.
-                            <br />
-                            <br />
-                        </div>
-                    </div>
+                <div className="about-info">
+                    <h2 className="about-title display-2">About Us</h2>
+                    <p className="about-description description-text">
+                        <b className="primary-text">
+                            Welcome to iFix Electric, where electrical expertise meets unparalleled customer service.
+                        </b>
+                        <br />
+                        <br />
+                        With over 25 years of experience in the industry, we have earned a reputation for delivering
+                        top-quality electrical solutions that go above and beyond expectations.
+                        <br />
+                        <br />
+                        At iFix Electric, we understand that exceptional service goes beyond technical proficiency. We
+                        are committed to creating a memorable customer experience.
+                        <br />
+                        <br />
+                        <br />
+                        <Link to="/about" className="about-link">
+                            <Button name="read more" variant="contained" />
+                        </Link>
+                    </p>
                 </div>
             </div>
         </section>
@@ -208,14 +422,18 @@ const WhyUsSection = () => {
     const { bolt, phone, userGraduate, reply } = localData.svgs;
 
     return (
-        <section className="why-us">
-            <div className="container-sm">
-                <div className="why-us-cover">
-                    <img src={electricImage3} alt="" />
-                </div>
-            </div>
+        <section className="why-us" id="why-us">
             <div className="container">
-                <div className="why-us-content">
+                <div className="why-us-header">
+                    <h6 className="display-6 text-danger">Solving problems since 1963</h6>
+                    <h2 className="display-2 text-dark why-us-suptitle">
+                        We Provide The Best Residential, Commercial, And Car Locksmith Services
+                    </h2>
+                </div>
+                    <div className="why-us-cover">
+                        <img src={electricImage3} alt="" />
+                    </div>
+                <div className="why-us-body">
                     <div className="wrapper">
                         <h6 className="why-us-subtitle display-6">why choose us</h6>
                         <h2 className="why-us-title display-3">Keep Fully Licensed, Bonded, And Insured</h2>
@@ -277,7 +495,7 @@ const TestimonialsSection = () => {
     const { person1, person2, pattern } = localData.images;
 
     return (
-        <section className="testimonials">
+        <section className="testimonials" id="testimonials">
             <img className="testimonials-pattern" src={pattern} alt="" />
             <div className="container">
                 <div className="banner">
@@ -334,18 +552,22 @@ const TestimonialsSection = () => {
 const ContactSection = () => {
     const { message, location } = localData.svgs;
     return (
-        <section className="contact">
+        <section className="contact" id="contact">
             <div className="container">
-                <div className="contact-content">
+                <div className="contact-header">
+                    <h6 className="display-6">We work 24/7</h6>
+                    <h2 className="display-2 text-danger">Call 307-207-7426</h2>
+                </div>
+                <div className="contact-body">
                     <div className="contact-info">
-                        <h2 className="contact-title display-2">Need Service?</h2>
+                        <h2 className="contact-title display-3">contact</h2>
                         <a href="mailto:contact@info.com" target="_blank">
-                            <Button startIcon={message} name="contact@info.com" color="warning" />
+                            <Button startIcon={message} size="lg" name="contact@info.com" color="danger" />
                         </a>
                         <br />
 
                         <a href="https://goo.gl/maps/Umeiy1TaS8dXfRQv6" target="_blank">
-                            <Button startIcon={location} name="Asheville North Carolina" color="warning" />
+                            <Button startIcon={location} size="lg" name="Asheville North Carolina" color="danger" />
                         </a>
                     </div>
                     <Form />
@@ -379,8 +601,8 @@ export default function Home() {
                 <HeaderChildren />
             </Header>
             <motion.main className="home-page" {...pageFade}>
-                <AboutSection />
                 <ServicesSection />
+                <AboutSection />
                 <WhyUsSection />
                 <TestimonialsSection />
                 <ContactSection />

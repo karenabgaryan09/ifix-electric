@@ -14,6 +14,7 @@ export default function Form() {
     const [wasSubmitted, setWasSubmitted] = useState(false);
     const [state, setState] = useState({
         name: "",
+        lastName: '',
         email: "",
         phone: "",
         service: "",
@@ -68,22 +69,38 @@ export default function Form() {
             action="#/dsfd"
             className={`contact-form needs-validation ${wasSubmitted ? "was-submitted" : ""}`}
             onSubmit={onSubmit}
-            // noValidate
+            noValidate
         >
             <h2 className="contact-title display-3">Message Us</h2>
+            <div className="wrapper">
             <FieldBtn
+                required={true}
                 name="name"
+                label="Name"
                 variant="contained"
                 color="light"
                 errorMessage={errorMessages.name}
                 btnClassName={errorMessages.name ? "is-invalid" : "is-valid"}
                 value={state.name}
                 callback={onChange}
-                placeholder="name"
             />
+            <br />
+            <FieldBtn
+                name="lastName"
+                label="Last Name"
+                variant="contained"
+                color="light"
+                errorMessage={errorMessages.lastName}
+                btnClassName={errorMessages.lastName ? "is-invalid" : "is-valid"}
+                value={state.lastName}
+                callback={onChange}
+            />
+
+            </div>
             <br />
 
             <FieldBtn
+                required={true}
                 name="email"
                 variant="contained"
                 color="light"
@@ -91,7 +108,7 @@ export default function Form() {
                 btnClassName={errorMessages.email ? "is-invalid" : "is-valid"}
                 value={state.email}
                 callback={onChange}
-                placeholder="email"
+                label="Email"
             />
             <br />
 
@@ -103,7 +120,7 @@ export default function Form() {
                 btnClassName={errorMessages.phone ? "is-invalid" : "is-valid"}
                 value={state.phone}
                 callback={onChange}
-                placeholder="phone number"
+                label="Phone Number"
             />
             <br />
 
@@ -111,7 +128,7 @@ export default function Form() {
                 {...{
                     items,
                     setItems,
-                    placeholder: "service type",
+                    label: "Service Type",
                     variant: "contained",
                     color: "light",
                     name: "service",
@@ -121,10 +138,11 @@ export default function Form() {
             <br />
 
             <FieldBtn
+             required={true}
                 name="message"
                 variant="contained"
                 color="light"
-                placeholder="message"
+                label="Message"
                 errorMessage={errorMessages.message}
                 btnClassName={errorMessages.message ? "is-invalid" : "is-valid"}
                 value={state.message}

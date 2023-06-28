@@ -38,13 +38,19 @@
     &-button {
         width: 100%;
         padding: 1rem 1.25rem;
-        justify-content: space-between;
+        // justify-content: space-between;
+        justify-content: flex-start;
         .endIcon {
             transition: transform .3s ease;
             transform: rotateZ(180deg);
         }
+        .startIcon {
+            transition: transform .3s ease;
+            transform: rotateZ(90deg);
+        }
         &:not(.collapsed) {
-            .endIcon {
+            .endIcon,
+            .startIcon {
                 transform: none;
             }
         }

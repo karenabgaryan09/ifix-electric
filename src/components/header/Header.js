@@ -7,7 +7,7 @@ export default function Header({ title, className, children }) {
     
 
     return (
-        <motion.header {...pageFade} className={"hero " + className} >
+        <motion.header {...pageFade} className={"hero " + className} id="hero">
            {children}
         </motion.header>
     );

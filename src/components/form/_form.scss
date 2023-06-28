@@ -1,0 +1,17 @@
+.contact-form {
+    // max-width: 600px;
+    & > .wrapper {
+            display: flex;
+            gap: 0 10px;
+            flex-direction: column;
+            @include mq(576px){
+                flex-direction: row;
+            }
+            .field-btn {
+                flex: 1;
+            }
+    }
+    .select {
+        max-width: 100%;
+    }
+}

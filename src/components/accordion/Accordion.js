@@ -8,7 +8,7 @@ function AccordionItem({ buttonName, content, isItemOpened,variant,color }) {
     const [isOpened, setIsOpened] = useState(isItemOpened);
     const [height, setHeight] = useState("0px");
     const [display, setDisplay] = useState("none");
-    const { chevronDown } = localData.svgs;
+    const { chevronDown, caretRight } = localData.svgs;
     const contentRef = useRef(null);
 
     useEffect(() => {
@@ -34,7 +34,8 @@ function AccordionItem({ buttonName, content, isItemOpened,variant,color }) {
                         isButtonDisabled = true;
                         setIsOpened(!isOpened);
                     }}
-                    endIcon={chevronDown}
+                    startIcon={caretRight}
+                    // endIcon={chevronDown}
                 >
                     {buttonName}
                 </Button>

@@ -1,9 +1,194 @@
 .home-page {
+        // SERVICES SECTION
+        .services {
+            // padding: 0;
+            // .container {
+            //     max-width: 900px;
+            // }
+            // .row {
+            //     display: flex;
+            //     flex-direction: column;
+            //     &-1 {
+            //         .block {
+            //             &-left {
+            //                 background-color: rgb(56, 60, 71);
+            //             }
+            //             &-right {
+            //             }
+            //             @include mq(992px) {
+            //                 &-right {
+            //                     .container {
+            //                         margin-left: 0;
+            //                     }
+            //                 }
+            //             }
+            //         }
+            //     }
+            //     &-2 {
+            //         .block {
+            //             &-left {
+            //                 position: relative;
+            //                 img {
+            //                     height: 100px;
+            //                     position: absolute;
+            //                     top: 50%;
+            //                     right: 0;
+            //                     transform: translateY(-50%);
+            //                     padding: 10px 30px;
+            //                 }
+            //             }
+            //             &-right {
+            //             }
+            //         }
+            //     }
+            //     @include mq(992px) {
+            //         flex-direction: row;
+            //         &-2 {
+            //             .block {
+            //                 &-left {
+            //                     order: 2;
+            //                 }
+            //                 &-right {
+            //                     order: 1;
+            //                     .container {
+            //                         margin-right: 0;
+            //                     }
+            //                 }
+            //             }
+            //         }
+            //     }
+            // }
+            // .block {
+            //     padding: 50px 0;
+            //     @include mq(992px) {
+            //         padding: 100px 0;
+            //     }
+    
+            //     &-left {
+            //         // background-color: color(primary);
+            //         flex: 1;
+            //     }
+            //     &-right {
+            //         // background-color: color(light);
+            //         flex: 1.5;
+            //         ul {
+            //             li {
+            //                 position: relative;
+            //                 padding-left: 15px;
+            //                 &:before {
+            //                     content: "";
+            //                     position: absolute;
+            //                     transform: translateY(-50%);
+            //                     top: 50%;
+            //                     left: 0;
+            //                     width: 5px;
+            //                     height: 5px;
+            //                     background-color: color(primary);
+            //                     border-radius: 50%;
+            //                     margin: 0 3px;
+            //                 }
+            //             }
+            //         }
+            //     }
+            // }
+            // &-sup-title {
+            //     color: color(light);
+            //     @include mq(992px) {
+            //         max-width: 320px;
+            //         margin-left: auto;
+            //     }
+            // }
+            // &-title {
+            //     max-width: 700px;
+            // }
+            // &-description {
+            //     color: color(dark, 0.9);
+            //     font-weight: 300;
+            // }
+    
+            .card-group {
+                display: grid;
+                grid-gap: 80px 0;
+                margin-bottom: 70px;
+                @include mq(992px) {
+                    grid-template-columns: 1fr 1fr 1fr;
+                }
+            }
+    
+            .service-card {
+                .card {
+                    &-header {
+                        max-width: 380px;
+                        margin: 0 auto;
+                    }
+                    &-image {
+                        position: relative;
+                        height: 0;
+                        width: 100%;
+                        padding-top: 120%;
+                        margin-bottom: 30px;
+    
+                        img {
+                            position: absolute;
+                            top: 0;
+                            left: 0;
+                            width: 100%;
+                            height: 100%;
+                            object-fit: cover;
+                            object-position: center;
+                        }
+                    }
+    
+                    &-title {
+                        position: relative;
+                        padding-bottom: 15px;
+                        &:after {
+                            content: "";
+                            position: absolute;
+                            top: 100%;
+                            left: 0;
+                            width: 50px;
+                            height: 2px;
+                            background-color: color(danger);
+                        }
+                    }
+                }
+                & > .wrapper {
+                    @include mq(992px) {
+                        padding: 0 20px;
+                    }
+                }
+                .accordion {
+                    &-item {
+                        border-radius: 0;
+                        border-bottom: 1px solid color(primary, 0.2);
+                    }
+                    &-title {
+                    }
+                    .btn {
+                        text-transform: none;
+                        padding-left: 0;
+                        padding-right: 0;
+                        font-size: 14px;
+                        font-family: Montserrat;
+                        font-weight: bold;
+                        text-align: left;
+                        
+                        &.collapsed {
+    
+                            color: color(danger);
+                        }
+                    }
+                }
+            }
+        }
+
     // ABOUT US
     .about {
+        padding-top: 0;
         .container {
             display: grid;
-            grid-gap: 150px 50px;
+            grid-gap: 0px 50px;
             align-items: center;
             @include mq(992px) {
                 grid-template-columns: 1fr 1fr;
@@ -16,14 +201,22 @@
         }
         .btn {
         }
-
-        .col {
-            position: relative;
-        }
-        &-description {
-            b {
-                font-size: 18px;
+        &-info {
+            margin-top: 100px;
+            @include mq(992px){
+                order: 1;
             }
+        }
+        &-cover {
+            position: relative;
+            margin-top: -50px;
+            @include mq(992px){
+                order: 2;
+            }
+        }
+      
+        &-description {
+           max-width: 500px;
         }
         .cover-wrapper {
             width: 100%;
@@ -71,122 +264,16 @@
         }
     }
 
-    // SERVICES SECTION
-    .services {
-        padding: 0;
-        .container {
-            max-width: 900px;
-        }
-        .row {
-            display: flex;
-            flex-direction: column;
-            &-1 {
-                .block {
-                    &-left {
-                        background-color: rgb(56, 60, 71);
-                    }
-                    &-right {
-                    }
-                    @include mq(992px) {
-                        &-right {
-                            .container {
-                                margin-left: 0;
-                            }
-                        }
-                    }
-                }
-            }
-            &-2 {
-                .block {
-                    &-left {
-                        position: relative;
-                        img {
-                            height: 100px;
-                            position: absolute;
-                            top: 50%;
-                            right: 0;
-                            transform: translateY(-50%);
-                            padding: 10px 30px;
-                        }
-                    }
-                    &-right {
-                    }
-                }
-            }
-            @include mq(992px) {
-                flex-direction: row;
-                &-2 {
-                    .block {
-                        &-left {
-                            order: 2;
-                        }
-                        &-right {
-                            order: 1;
-                            .container {
-                                margin-right: 0;
-                            }
-                        }
-                    }
-                }
-            }
-        }
-        .block {
-            padding: 50px 0;
-            @include mq(992px) {
-                padding: 100px 0;
-            }
-
-            &-left {
-                // background-color: color(primary);
-                flex: 1;
-            }
-            &-right {
-                // background-color: color(light);
-                flex: 1.5;
-                ul {
-                    li {
-                        position: relative;
-                        padding-left: 15px;
-                        &:before {
-                            content: "";
-                            position: absolute;
-                            transform: translateY(-50%);
-                            top: 50%;
-                            left: 0;
-                            width: 5px;
-                            height: 5px;
-                            background-color: color(primary);
-                            border-radius: 50%;
-                            margin: 0 3px;
-                        }
-                    }
-                }
-            }
-        }
-        &-sup-title {
-            color: color(light);
-            @include mq(992px) {
-                max-width: 320px;
-                margin-left: auto;
-            }
-        }
-        &-title {
-            max-width: 700px;
-        }
-        &-description {
-            color: color(dark, 0.9);
-            font-weight: 300;
-        }
-    }
-
     // TEXTIMONIALS
     .testimonials {
         position: relative;
         background-color: rgb(56, 60, 71);
-        // background-image: url('../../assets/images/icons/pattern.png');
-        // background-repeat: no-repeat;
-        // background-position: top right;
-        // background-size: 200px;
+        padding-top: 0;
+        margin-top: 60px;
+        @include mq(992px){
+            margin-top: 0px;
+            padding-top: 200px;
+        }
         &-pattern {
             opacity: 0.1;
             position: absolute;
@@ -209,9 +296,12 @@
             }
         }
         .banner {
-            background-color: color(warning);
+            background-color: color(danger);
             padding: 30px;
+            color: #fff;
+            margin-top: -60px;
             @include mq(992px) {
+                margin-top: -260px;
                 max-width: 320px;
             }
             @include mq(1200px) {
@@ -227,7 +317,7 @@
                     margin-bottom: 60px;
                 }
                 @include mq(1200px) {
-                    margin-bottom: 100px;
+                    margin-bottom: 70px;
                 }
             }
             &-stars {
@@ -235,17 +325,23 @@
                 gap: 3px;
             }
             &-number {
-                font-size: 80px;
+                font-size: 120px;
+                font-family: Staatliches;
                 line-height: 1;
-                font-weight: bold;
+                font-weight: 400;
             }
             &-description {
-                font-weight: 600;
-                font-size: 18px;
+                font-weight: 700;
+                // font-size: 18px;
+                color: #fff;
+                font-size: 1.375rem;
+                font-family: Montserrat;
+                line-height: 1.2em;
             }
             svg {
                 height: 15px;
                 path {
+                    fill: color(warning);
                 }
             }
         }
@@ -290,6 +386,9 @@
 
     // WHY US
     .why-us {
+        @include mq(992px){
+            padding-top: 100px;
+        }
         &-cover {
             position: relative;
             height: 0;
@@ -312,7 +411,16 @@
         }
         .container {
         }
-        &-content {
+        &-header {
+            margin-bottom: 50px;
+            border: 1px solid color(primary,.1);
+            border-width: 0 0 1px 0;
+        }
+        &-suptitle {
+            max-width: 900px;
+
+        }
+        &-body {
             display: grid;
             grid-gap: 70px;
 
@@ -347,7 +455,7 @@
             svg {
                 height: 20px;
                 path {
-                    fill: color(warning);
+                    fill: color(danger);
                 }
             }
         }
@@ -355,30 +463,29 @@
 
     // CONTACT SECTION
     .contact {
-      padding-bottom: 0;
+        padding-bottom: 0;
         background-color: color(dark, 0.1);
-
-        &-content {
+        @include mq(992px){
+            padding-top: 100px;
+        }
+        &-header {
+            margin-bottom: 50px;
+            border: 1px solid color(primary,.1);
+            border-width: 0 0 1px 0;
+        }
+        &-body {
             display: grid;
             grid-gap: 60px 30px;
             margin-bottom: 100px;
             @include mq(992px) {
                 justify-content: space-between;
-                grid-template-columns: 1fr 600px;
+                grid-template-columns: 300px 1fr;
             }
-          
-          
         }
         &-title {
             margin-bottom: 25px;
         }
 
-        .contact-form {
-            // max-width: 600px;
-            .select {
-                max-width: 100%;
-            }
-        }
 
 
         .map-wrapper {
@@ -403,9 +510,5 @@
                 }
             }
         }
-
-  
-
-   
     }
 }

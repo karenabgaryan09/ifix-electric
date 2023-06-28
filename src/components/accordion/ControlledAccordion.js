@@ -7,7 +7,7 @@ let isFirstRender = true; // preventing accordion item short height glitch
 function AccordionItem({ buttonName, content, isOpened, index, setActiveIndex, variant, color }) {
     const [height, setHeight] = useState("0px");
     const [display, setDisplay] = useState("none");
-    const { chevronDown } = localData.svgs;
+    const { chevronDown,caretRight } = localData.svgs;
     const contentRef = useRef(null);
 
     useEffect(() => {
@@ -33,7 +33,8 @@ function AccordionItem({ buttonName, content, isOpened, index, setActiveIndex, v
                         isButtonDisabled = true;
                         setActiveIndex(!isOpened ? index : null);
                     }}
-                    endIcon={chevronDown}
+                    // endIcon={chevronDown}
+                    startIcon={caretRight}
                 >
                     {buttonName}
                 </Button>

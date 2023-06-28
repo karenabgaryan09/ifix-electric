@@ -16,7 +16,6 @@
             &-toggle {
                 border-bottom-left-radius: 0;
                 border-bottom-right-radius: 0;
-                
                 &-icon {
                     svg {
                         transform: rotate(180deg);
@@ -57,7 +56,7 @@
         }
     }
     &-toggle {
-        padding: 10px 15px;
+        padding: 12px 15px;
         cursor: pointer;
         width: 100%;
         justify-content: space-between;
@@ -83,6 +82,8 @@
             line-height: 1.5;
             font-size: 1rem;
             font-weight: 400;
+            min-height: 24px;
+
             &::first-letter {
                 text-transform: uppercase;
             }
