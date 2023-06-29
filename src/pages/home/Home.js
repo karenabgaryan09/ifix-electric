@@ -27,6 +27,9 @@ const HeaderChildren = () => {
                     <Button name="CALL 307-207-7426" variant="contained" color="danger" />
                 </a>
             </div>
+            {/* <div className="hero-image">
+
+            </div> */}
         </div>
     );
 };
@@ -430,9 +433,9 @@ const WhyUsSection = () => {
                         We Provide The Best Residential, Commercial, And Car Locksmith Services
                     </h2>
                 </div>
-                    <div className="why-us-cover">
-                        <img src={electricImage3} alt="" />
-                    </div>
+                <div className="why-us-cover">
+                    <img src={electricImage3} alt="" />
+                </div>
                 <div className="why-us-body">
                     <div className="wrapper">
                         <h6 className="why-us-subtitle display-6">why choose us</h6>

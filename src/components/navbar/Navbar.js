@@ -64,9 +64,7 @@ export default function Navbar() {
     return (
         <nav className="navbar navbar-expand-lg" id="navbar">
             <div className="container">
-                <a className="navbar-brand" href="/">
-                    <img src={logo} alt="" />
-                </a>
+               
                 {/* <div className="burger">
                     <span></span>
                 </div> */}
@@ -86,6 +84,7 @@ export default function Navbar() {
                         /> */}
                     </ul>
                 </div>
+                
                 {/* <div className="wrapper">
                     <Button className="guarantee-btn" color="primary" variant="text">
                         <a href="tel:+3072077426">
@@ -105,6 +104,10 @@ export default function Navbar() {
                     togglerIcon={bars}
                     Child={DrawerChild}
                 ></Drawer>
+
+<a className="navbar-brand" href="/">
+                    <img src={logo} alt="" />
+                </a>
             </div>
         </nav>
     );
