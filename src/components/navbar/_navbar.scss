@@ -7,6 +7,21 @@
     padding-bottom: 1rem;
     // background-color: color(primary);
     transition: padding 0.3s ease;
+    .right-wrapper {
+        display: flex;
+        align-items: center;
+    }
+    .logo-2 {
+        margin-left: 15px;
+        img{
+
+            height: 70px;
+            @include mq(992px){
+                height: 80px;
+
+            }
+        }
+    }
     &.shrink {
         padding-top: 0.5rem;
         padding-bottom: 0.5rem;
@@ -92,6 +107,7 @@
         margin-bottom: 0;
         list-style: none;
         margin-left: auto;
+     
         .nav-link,
         .dropdown-toggle {
             white-space: nowrap;

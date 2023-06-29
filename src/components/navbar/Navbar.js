@@ -5,7 +5,7 @@ import { v4 as uuidv4 } from "uuid";
 import localData from "../../localData";
 
 const menu = [
-    { title: "home", isActive: 'true', href: "/" },
+    { title: "home", isActive: "true", href: "/" },
     { title: "service", href: "#services" },
     { title: "about", href: "#about" },
     { title: "why choose Us", href: "#why-us" },
@@ -59,7 +59,7 @@ const DrawerChild = ({ parentCallback }) => {
 export default function Navbar() {
     const location = useLocation();
     const { bars } = localData.svgs;
-    const { logo, guarantee } = localData.images;
+    const { logo, logo2, guarantee } = localData.images;
 
     return (
         <nav className="navbar navbar-expand-lg" id="navbar">
@@ -73,9 +73,9 @@ export default function Navbar() {
 
                 <div className="navbar-collapse" id="navbarSupportedContent">
                     <ul className="navbar-nav me-auto">
-                        {menu.map(({ title, href,isActive }, index) => (
+                        {menu.map(({ title, href, isActive }, index) => (
                             <li className="nav-item" key={index}>
-                                <a href={href} className={`nav-link ${isActive ? 'active': ''}`}>
+                                <a href={href} className={`nav-link ${isActive ? "active" : ""}`}>
                                     {title}
                                 </a>
                             </li>
@@ -86,6 +86,7 @@ export default function Navbar() {
                         /> */}
                     </ul>
                 </div>
+
                 {/* <div className="wrapper">
                     <Button className="guarantee-btn" color="primary" variant="text">
                         <a href="tel:+3072077426">
@@ -98,13 +99,18 @@ export default function Navbar() {
                     </Button>
                     <Button className="schedule-btn" color="primary" variant="contained" name="Schedule Appointment" />
                 </div> */}
-                <Drawer
-                    togglerVariant="circle"
-                    togglerColor="dark"
-                    togglerClassName="navbar-toggler"
-                    togglerIcon={bars}
-                    Child={DrawerChild}
-                ></Drawer>
+                <div className="right-wrapper">
+                    <Drawer
+                        togglerVariant="circle"
+                        togglerColor="dark"
+                        togglerClassName="navbar-toggler"
+                        togglerIcon={bars}
+                        Child={DrawerChild}
+                    ></Drawer>
+                    <div className="logo-2">
+                        <img src={logo2} alt="" />
+                    </div>
+                </div>
             </div>
         </nav>
     );
