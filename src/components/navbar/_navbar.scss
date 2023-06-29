@@ -91,7 +91,7 @@
         padding-left: 0;
         margin-bottom: 0;
         list-style: none;
-        // margin-left: auto;
+        margin-left: auto;
         .nav-link,
         .dropdown-toggle {
             white-space: nowrap;
@@ -114,7 +114,7 @@
                 color: color(danger);
             }
             &:hover:not(.active) {
-                color: color(danger);
+                color: color(dark);
                 // color: rgba(255, 255, 255, 0.7);
             }
         }
