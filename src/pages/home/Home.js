@@ -176,8 +176,9 @@ const ServicesSection = () => {
                                         color: "dark",
                                         content: (
                                             <p className="description description-text">
-                                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus,
-                                                luctus nec ullamcorper mattis, pulvinar dapibus leo.
+                                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut
+                                                elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus
+                                                leo.
                                             </p>
                                         ),
                                     },
@@ -187,8 +188,9 @@ const ServicesSection = () => {
                                         color: "dark",
                                         content: (
                                             <p className="description description-text">
-                                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus,
-                                                luctus nec ullamcorper mattis, pulvinar dapibus leo.
+                                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut
+                                                elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus
+                                                leo.
                                             </p>
                                         ),
                                     },
@@ -198,8 +200,9 @@ const ServicesSection = () => {
                                         color: "dark",
                                         content: (
                                             <p className="description description-text">
-                                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus,
-                                                luctus nec ullamcorper mattis, pulvinar dapibus leo.
+                                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut
+                                                elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus
+                                                leo.
                                             </p>
                                         ),
                                     },
@@ -209,8 +212,9 @@ const ServicesSection = () => {
                                         color: "dark",
                                         content: (
                                             <p className="description description-text">
-                                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus,
-                                                luctus nec ullamcorper mattis, pulvinar dapibus leo.
+                                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut
+                                                elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus
+                                                leo.
                                             </p>
                                         ),
                                     },
@@ -220,8 +224,9 @@ const ServicesSection = () => {
                                         color: "dark",
                                         content: (
                                             <p className="description description-text">
-                                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus,
-                                                luctus nec ullamcorper mattis, pulvinar dapibus leo.
+                                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut
+                                                elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus
+                                                leo.
                                             </p>
                                         ),
                                     },
@@ -246,8 +251,9 @@ const ServicesSection = () => {
                                         color: "dark",
                                         content: (
                                             <p className="description description-text">
-                                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus,
-                                                luctus nec ullamcorper mattis, pulvinar dapibus leo.
+                                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut
+                                                elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus
+                                                leo.
                                             </p>
                                         ),
                                     },
@@ -257,8 +263,9 @@ const ServicesSection = () => {
                                         color: "dark",
                                         content: (
                                             <p className="description description-text">
-                                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus,
-                                                luctus nec ullamcorper mattis, pulvinar dapibus leo.
+                                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut
+                                                elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus
+                                                leo.
                                             </p>
                                         ),
                                     },
@@ -268,8 +275,9 @@ const ServicesSection = () => {
                                         color: "dark",
                                         content: (
                                             <p className="description description-text">
-                                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus,
-                                                luctus nec ullamcorper mattis, pulvinar dapibus leo.
+                                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut
+                                                elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus
+                                                leo.
                                             </p>
                                         ),
                                     },
@@ -279,8 +287,9 @@ const ServicesSection = () => {
                                         color: "dark",
                                         content: (
                                             <p className="description description-text">
-                                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus,
-                                                luctus nec ullamcorper mattis, pulvinar dapibus leo.
+                                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut
+                                                elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus
+                                                leo.
                                             </p>
                                         ),
                                     },
@@ -290,8 +299,9 @@ const ServicesSection = () => {
                                         color: "dark",
                                         content: (
                                             <p className="description description-text">
-                                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus,
-                                                luctus nec ullamcorper mattis, pulvinar dapibus leo.
+                                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut
+                                                elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus
+                                                leo.
                                             </p>
                                         ),
                                     },
@@ -316,8 +326,9 @@ const ServicesSection = () => {
                                         color: "dark",
                                         content: (
                                             <p className="description description-text">
-                                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus,
-                                                luctus nec ullamcorper mattis, pulvinar dapibus leo.
+                                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut
+                                                elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus
+                                                leo.
                                             </p>
                                         ),
                                     },
@@ -327,8 +338,9 @@ const ServicesSection = () => {
                                         color: "dark",
                                         content: (
                                             <p className="description description-text">
-                                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus,
-                                                luctus nec ullamcorper mattis, pulvinar dapibus leo.
+                                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut
+                                                elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus
+                                                leo.
                                             </p>
                                         ),
                                     },
@@ -338,8 +350,9 @@ const ServicesSection = () => {
                                         color: "dark",
                                         content: (
                                             <p className="description description-text">
-                                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus,
-                                                luctus nec ullamcorper mattis, pulvinar dapibus leo.
+                                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut
+                                                elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus
+                                                leo.
                                             </p>
                                         ),
                                     },
@@ -349,8 +362,9 @@ const ServicesSection = () => {
                                         color: "dark",
                                         content: (
                                             <p className="description description-text">
-                                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus,
-                                                luctus nec ullamcorper mattis, pulvinar dapibus leo.
+                                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut
+                                                elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus
+                                                leo.
                                             </p>
                                         ),
                                     },
@@ -360,8 +374,9 @@ const ServicesSection = () => {
                                         color: "dark",
                                         content: (
                                             <p className="description description-text">
-                                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus,
-                                                luctus nec ullamcorper mattis, pulvinar dapibus leo.
+                                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut
+                                                elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus
+                                                leo.
                                             </p>
                                         ),
                                     },
@@ -397,16 +412,17 @@ const AboutSection = () => {
                     <h2 className="about-title display-2">About Us</h2>
                     <p className="about-description description-text">
                         <b className="primary-text">
-                            Welcome to iFix Electric, where electrical expertise meets unparalleled customer service.
+                            Welcome to iFix Electric, where electrical expertise meets unparalleled customer
+                            service.
                         </b>
                         <br />
                         <br />
-                        With over 25 years of experience in the industry, we have earned a reputation for delivering
-                        top-quality electrical solutions that go above and beyond expectations.
+                        With over 25 years of experience in the industry, we have earned a reputation for
+                        delivering top-quality electrical solutions that go above and beyond expectations.
                         <br />
                         <br />
-                        At iFix Electric, we understand that exceptional service goes beyond technical proficiency. We
-                        are committed to creating a memorable customer experience.
+                        At iFix Electric, we understand that exceptional service goes beyond technical
+                        proficiency. We are committed to creating a memorable customer experience.
                         <br />
                         <br />
                         <br />
@@ -448,8 +464,8 @@ const WhyUsSection = () => {
                             <div className="wrapper">
                                 <h4 className="offer-title display-4">Professional Electricians</h4>
                                 <p className="offer-description description-text">
-                                    iFIX Electric’s electricians are trained professionals who are well-versed in the
-                                    latest safety standards.
+                                    iFIX Electric’s electricians are trained professionals who are well-versed
+                                    in the latest safety standards.
                                 </p>
                             </div>
                         </div>
@@ -459,8 +475,9 @@ const WhyUsSection = () => {
                             <div className="wrapper">
                                 <h4 className="offer-title display-4">Customer Support</h4>
                                 <p className="offer-description description-text">
-                                    We pride ourselves on customer service, and have the highest standards of etiquette,
-                                    from the time we enter the residence to cleaning up after a project.
+                                    We pride ourselves on customer service, and have the highest standards of
+                                    etiquette, from the time we enter the residence to cleaning up after a
+                                    project.
                                 </p>
                             </div>
                         </div>
@@ -470,8 +487,8 @@ const WhyUsSection = () => {
                             <div className="wrapper">
                                 <h4 className="offer-title display-4">Continuing Education</h4>
                                 <p className="offer-description description-text">
-                                    All of our electricians are expected to maintain a high level of knowledge pertinent
-                                    to our industry and must take regular courses to stay updated.
+                                    All of our electricians are expected to maintain a high level of knowledge
+                                    pertinent to our industry and must take regular courses to stay updated.
                                 </p>
                             </div>
                         </div>
@@ -481,8 +498,8 @@ const WhyUsSection = () => {
                             <div className="wrapper">
                                 <h4 className="offer-title display-4">Quick Response</h4>
                                 <p className="offer-description description-text">
-                                    We pride ourselves on answering calls, responding to requests quickly, and efficient
-                                    scheduling.
+                                    We pride ourselves on answering calls, responding to requests quickly, and
+                                    efficient scheduling.
                                 </p>
                             </div>
                         </div>
@@ -515,7 +532,9 @@ const TestimonialsSection = () => {
                         <div className="banner-number">4.8</div>
                     </div>
 
-                    <p className="banner-description">Our average customer rating is 4.8 / 5 based on 2.549 reviews</p>
+                    <p className="banner-description">
+                        Our average customer rating is 4.8 / 5 based on 2.549 reviews
+                    </p>
                 </div>
 
                 <div className="reviews">
@@ -523,8 +542,8 @@ const TestimonialsSection = () => {
 
                     <div className="review">
                         <div className="review-description">
-                            iFIX Electric electricians were professional and thorough, and had my electrical outlets and
-                            smoke detectors installed within a day.
+                            iFIX Electric electricians were professional and thorough, and had my electrical
+                            outlets and smoke detectors installed within a day.
                         </div>
                         <div className="wrapper">
                             <div className="review-cover">
@@ -536,8 +555,8 @@ const TestimonialsSection = () => {
 
                     <div className="review">
                         <div className="review-description">
-                            When we moved to our new house, we started using iFix Electric to install ceiling fans and
-                            now they do everything we need.
+                            When we moved to our new house, we started using iFix Electric to install ceiling
+                            fans and now they do everything we need.
                         </div>
                         <div className="wrapper">
                             <div className="review-cover">
@@ -569,8 +588,21 @@ const ContactSection = () => {
                         </a>
                         <br />
 
-                        <a href="https://goo.gl/maps/Umeiy1TaS8dXfRQv6" target="_blank">
-                            <Button startIcon={location} size="lg" name="Asheville North Carolina" color="danger" />
+                        {/* <a href="https://goo.gl/maps/Umeiy1TaS8dXfRQv6" target="_blank">
+                            <Button
+                                startIcon={location}
+                                size="lg"
+                                name="Asheville North Carolina"
+                                color="danger"
+                            />
+                        </a> */}
+                        <a href="https://maps.app.goo.gl/4VFCYKoZvF2e6Jpp6" target="_blank">
+                            <Button
+                                startIcon={location}
+                                size="lg"
+                                name="Chapel Hill NC"
+                                color="danger"
+                            />
                         </a>
                     </div>
                     <Form />
@@ -579,10 +611,19 @@ const ContactSection = () => {
 
             <div className="map-wrapper">
                 <div className="map">
-                    <iframe
+                    {/* <iframe
                         src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d103890.98966351799!2d-82.64780591444055!3d35.53904366406443!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88598ca93c0f6f09%3A0x94ef31c106343a5d!2sAsheville%2C%20NC%2C%20USA!5e0!3m2!1sen!2sam!4v1687589599664!5m2!1sen!2sam"
                         // width="600"
                         // height="450"
+                        style={{ border: 0 }}
+                        allowFullScreen=""
+                        loading="lazy"
+                        referrerPolicy="no-referrer-when-downgrade"
+                    ></iframe> */}
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d51696.96647169675!2d-79.08049043283768!3d35.921021471768796!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89acc31c216e7ea7%3A0x7f03bae00443e4cb!2sChapel%20Hill%2C%20NC%2C%20USA!5e0!3m2!1sen!2sam!4v1697268664767!5m2!1sen!2sam"
+                        width="600"
+                        height="450"
                         style={{ border: 0 }}
                         allowFullScreen=""
                         loading="lazy"
