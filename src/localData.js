@@ -14,9 +14,9 @@ const images = {
     electricImage1: require("./assets/images/electric-image-1.jpg"),
     electricImage2: require("./assets/images/electric-image-2.jpg"),
     electricImage3: require("./assets/images/electric-image-3.jpg"),
-    repairs: require("./assets/images/services/repairs.jpg"),
-    installations: require("./assets/images/services/installations.jpg"),
-    safety: require("./assets/images/services/safety.jpg"),
+    repairs: require("./assets/images/services/repair-image.webp"),
+    installations: require("./assets/images/services/install-image.webp"),
+    safety: require("./assets/images/services/safety-image.webp"),
 };
 
 const localData = {

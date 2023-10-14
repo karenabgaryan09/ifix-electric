@@ -485,7 +485,12 @@
         &-title {
             margin-bottom: 25px;
         }
+        &-link {
+            button {
 
+                text-transform: unset;
+            }
+        }
 
 
         .map-wrapper {

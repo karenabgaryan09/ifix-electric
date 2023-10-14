@@ -154,6 +154,39 @@ const HeaderChildren = () => {
 const ServicesSection = () => {
     const { ref, inView } = useObserver();
     const { repairs, installations, safety } = localData.images;
+    const { ifixElectricData } = useGlobalContext();
+    const [electricalRepairs, setElectricalRepairs] = useState([]);
+    const [electricalInstallations, setElectricalInstallations] = useState([]);
+    const [electricalSafety, setElectricalSafety] = useState([]);
+
+    useEffect(() => {
+        const array1 = [];
+        const array2 = [];
+        const array3 = [];
+
+        const getItem = (item) => {
+            return {
+                buttonName: item.title,
+                variant: "text",
+                color: "dark",
+                content: <p className="description description-text">{item.description}</p>,
+            };
+        };
+
+        ifixElectricData.forEach((item) => {
+            if (item.category === "electrical repairs") {
+                array1.push(getItem(item));
+            } else if (item.category === "installations") {
+                array2.push(getItem(item));
+            } else if (item.category === "electrical safety") {
+                array3.push(getItem(item));
+            }
+        });
+
+        setElectricalRepairs(array1);
+        setElectricalInstallations(array2);
+        setElectricalSafety(array3);
+    }, [ifixElectricData]);
 
     return (
         <section className="services" ref={ref} id="services">
@@ -168,70 +201,11 @@ const ServicesSection = () => {
                         </div>
                         <div className="wrapper">
                             <h3 className="card-title display-3">Electrical Repairs</h3>
-                            <Accordion
-                                items={[
-                                    {
-                                        buttonName: "Emergency Repairs",
-                                        variant: "text",
-                                        color: "dark",
-                                        content: (
-                                            <p className="description description-text">
-                                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut
-                                                elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus
-                                                leo.
-                                            </p>
-                                        ),
-                                    },
-                                    {
-                                        buttonName: "Electrical Panel",
-                                        variant: "text",
-                                        color: "dark",
-                                        content: (
-                                            <p className="description description-text">
-                                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut
-                                                elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus
-                                                leo.
-                                            </p>
-                                        ),
-                                    },
-                                    {
-                                        buttonName: "Lighting",
-                                        variant: "text",
-                                        color: "dark",
-                                        content: (
-                                            <p className="description description-text">
-                                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut
-                                                elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus
-                                                leo.
-                                            </p>
-                                        ),
-                                    },
-                                    {
-                                        buttonName: "Ceiling Fans",
-                                        variant: "text",
-                                        color: "dark",
-                                        content: (
-                                            <p className="description description-text">
-                                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut
-                                                elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus
-                                                leo.
-                                            </p>
-                                        ),
-                                    },
-                                    {
-                                        buttonName: "Receptacles / Switches",
-                                        variant: "text",
-                                        color: "dark",
-                                        content: (
-                                            <p className="description description-text">
-                                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut
-                                                elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus
-                                                leo.
-                                            </p>
-                                        ),
-                                    },
-                                ]}
-                            />
+                            {!electricalRepairs.length ? (
+                                "loading..."
+                            ) : (
+                                <Accordion items={electricalRepairs} />
+                            )}
                         </div>
                     </div>
 
@@ -243,7 +217,7 @@ const ServicesSection = () => {
                         </div>
                         <div className="wrapper">
                             <h3 className="card-title display-3">Installations</h3>
-                            <Accordion
+                            {/* <Accordion
                                 items={[
                                     {
                                         buttonName: "Carbon Monoxide and Smoke Detectors",
@@ -306,7 +280,12 @@ const ServicesSection = () => {
                                         ),
                                     },
                                 ]}
-                            />
+                            /> */}
+                            {!electricalInstallations.length ? (
+                                "loading..."
+                            ) : (
+                                <Accordion items={electricalInstallations} />
+                            )}
                         </div>
                     </div>
 
@@ -318,7 +297,7 @@ const ServicesSection = () => {
                         </div>
                         <div className="wrapper">
                             <h3 className="card-title display-3">Electrical Safety</h3>
-                            <Accordion
+                            {/* <Accordion
                                 items={[
                                     {
                                         buttonName: "Check Breaker integrity",
@@ -381,7 +360,12 @@ const ServicesSection = () => {
                                         ),
                                     },
                                 ]}
-                            />
+                            /> */}
+                             {!electricalSafety.length ? (
+                                "loading..."
+                            ) : (
+                                <Accordion items={electricalSafety} />
+                            )}
                         </div>
                     </div>
                 </div>
@@ -583,8 +567,13 @@ const ContactSection = () => {
                 <div className="contact-body">
                     <div className="contact-info">
                         <h2 className="contact-title display-3">contact</h2>
-                        <a href="mailto:contact@info.com" target="_blank">
-                            <Button startIcon={message} size="lg" name="contact@info.com" color="danger" />
+                        <a className="contact-link" href="mailto:info@ifix-electric.com" target="_blank">
+                            <Button
+                                startIcon={message}
+                                size="lg"
+                                name="info@ifix-electric.com"
+                                color="danger"
+                            />
                         </a>
                         <br />
 
@@ -596,13 +585,12 @@ const ContactSection = () => {
                                 color="danger"
                             />
                         </a> */}
-                        <a href="https://maps.app.goo.gl/4VFCYKoZvF2e6Jpp6" target="_blank">
-                            <Button
-                                startIcon={location}
-                                size="lg"
-                                name="Chapel Hill NC"
-                                color="danger"
-                            />
+                        <a
+                            className="contact-link"
+                            href="https://maps.app.goo.gl/4VFCYKoZvF2e6Jpp6"
+                            target="_blank"
+                        >
+                            <Button startIcon={location} size="lg" name="Chapel Hill NC" color="danger" />
                         </a>
                     </div>
                     <Form />

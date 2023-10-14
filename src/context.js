@@ -1,7 +1,8 @@
-import React, { useState, createContext, useContext } from "react";
+import React, { useState, useEffect, createContext, useContext } from "react";
 import localData from "./localData";
 import { ToastContainer, toast } from "react-toastify";
 import emailjs from "@emailjs/browser";
+import useFetch from "./hooks/useFetch";
 export const Context = createContext();
 
 export default function Provider({ children }) {
@@ -91,6 +92,33 @@ export default function Provider({ children }) {
         );
     };
 
+    // ifix electric data
+    const [ifixElectricData,setIfixElectricData] = useState([])
+    const { getPosts } = useFetch();
+
+    const getConvertedData = (data) => {
+        const convertedData = [];
+        data.table.rows.forEach((item, index) => {
+            const obj = {};
+            obj.category = item.c[0]?.v
+            obj.title = item.c[1]?.v
+            obj.description = item.c[2]?.v;
+            // convertedData[item.c[0]?.v.toLowerCase()] = obj;
+            convertedData.push(obj)
+        });
+        return convertedData
+    };
+
+    useEffect(() => {
+        getPosts((err, data) => {
+            const tempData = JSON.parse(data.substr(47).slice(0, -2));
+            const convertedData =  getConvertedData(tempData);
+            setIfixElectricData(convertedData);
+            // console.log(convertedData)
+        });
+    }, []);
+
+
     return (
         <Context.Provider
             value={{
@@ -98,7 +126,8 @@ export default function Provider({ children }) {
                 ...state,
                 setState,
                 animations,
-                sendMessageToAdmin
+                sendMessageToAdmin,
+                ifixElectricData
             }}
         >
             {children}
