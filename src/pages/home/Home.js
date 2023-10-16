@@ -14,14 +14,14 @@ const HeaderChildren = () => {
         <div className="container" ref={ref}>
             <div className={`hero-content text-danger ${inView ? "lazy-animate" : ""}`} data-lazy="fade-up">
                 {/* <h6 className="display-4 hero-suptitle">Electrical</h6> */}
-                <a href="https://goo.gl/maps/Umeiy1TaS8dXfRQv6" target="_blank" className="location-link">
-                    <Button startIcon={location} size="xl" name="Asheville North Carolina" color="danger" />
+                <a href="https://maps.app.goo.gl/4VFCYKoZvF2e6Jpp6" target="_blank" className="location-link">
+                    <Button startIcon={location} size="xl" name="Chapel Hill NC" color="danger" />
                 </a>
                 <br />
                 <br />
                 <h1 className="display-1 hero-title">
                     Electrician Services
-                    <br /> - Asheville NC
+                    <br /> - Chapel Hill NC
                 </h1>
                 <a href="tel:+3072077426">
                     <Button name="CALL 307-207-7426" variant="contained" color="danger" />
