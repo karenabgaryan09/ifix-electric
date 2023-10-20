@@ -23,8 +23,8 @@ const HeaderChildren = () => {
                     Electrician Services
                     <br /> - Chapel Hill NC
                 </h1>
-                <a href="tel:+3072077426">
-                    <Button name="CALL 307-207-7426" variant="contained" color="danger" />
+                <a href="tel:+9849990833">
+                    <Button name="CALL (984) 999-0833" variant="contained" color="danger" />
                 </a>
             </div>
             {/* <div className="hero-image">
@@ -562,7 +562,7 @@ const ContactSection = () => {
             <div className="container">
                 <div className="contact-header">
                     <h6 className="display-6">We work 24/7</h6>
-                    <h2 className="display-2 text-danger">Call 307-207-7426</h2>
+                    <h2 className="display-2 text-danger">Call  (984) 999-0833</h2>
                 </div>
                 <div className="contact-body">
                     <div className="contact-info">

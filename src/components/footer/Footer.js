@@ -19,28 +19,38 @@ export default function Footer() {
                         </Link>
                     </div>
 
-                    <ul className="commercial">
+                    <ul className="quick-links">
                         <li>
-                            <div className="commercial-link title">Commercial</div>
+                            <div className="commercial-link title">Quick Links</div>
                         </li>
                         <li>
-                            <a href="#/" target="_blank" className="commercial-link">
-                                Electrical Inspections
+                            <a href="#services"  className="commercial-link">
+                                Service
                             </a>
                         </li>
                         <li>
-                            <a href="#/" target="_blank" className="commercial-link">
-                                Lighting
+                            <a href="#about"  className="commercial-link">
+                                About
                             </a>
                         </li>
                         <li>
-                            <a href="#/" target="_blank" className="commercial-link">
-                                Lighting
+                            <a href="#why-us"  className="commercial-link">
+                                Why Us
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#testimonials"  className="commercial-link">
+                                Testimonials
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#contact"  className="commercial-link">
+                                Conatct
                             </a>
                         </li>
                     </ul>
                     
-                    <ul className="commercial">
+                    {/* <ul className="commercial">
                         <li>
                             <div className="commercial-link title">Commercial</div>
                         </li>
@@ -90,13 +100,13 @@ export default function Footer() {
                                 Contact us
                             </a>
                         </li>
-                    </ul>
+                    </ul> */}
 
-                    <div className="socials">
+                    {/* <div className="socials">
                         <Button variant="circle" color="light" icon={facebook} />
                         <Button variant="circle" color="light" icon={twitter} />
                         <Button variant="circle" color="light" icon={instagram} />
-                    </div>
+                    </div> */}
                 </div>
 
                 <div className="row row-bottom">Copyright © 2023 by iFIX Electric</div>
